@@ -1,5 +1,5 @@
 <template>
-    <Layout title="Put your space in airbnb">
+    <Layout title="Share Your Space">
         <Container>
 
             <ToastList />
@@ -8,14 +8,13 @@
                 <div class="w-full lg:w-7/12 mt-12">
                     <div v-show="!showFormListing">
                         <h1 class="text-6xl font-bold text-[#FF385C]">
-                            Put in Airbnb.
+                            Petty
                         </h1>
 
-                        <h5 class="text-6xl font-bold mt-2">Can we earn</h5>
-                        <p class="text-7xl font-bold mt-5">S/ {{ totalPrice }}</p>
+                        <p class="text-7xl font-bold mt-5">${{ totalPrice }}</p>
                         <p class="mt-8">
-                            <span class="font-bold underline">{{ currentValue }} nights</span>
-                            at an stimateprice of S/ {{ price }} per night
+                            <div class="font-bold">{{ currentValue }} nights</div>
+                            <div>Earn an estimated ${{ totalPrice / currentValue}} per night</div>
                         </p>
 
                         <input id="minmax-range" type="range" min="1" :max="lastDayOfMonth" v-model="currentValue"

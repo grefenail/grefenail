@@ -25,7 +25,7 @@
                 {{ props.price }}
             </div>
             <div class="font-ligth">
-                Nigth
+                / Night
             </div>
         </div>
     </div>

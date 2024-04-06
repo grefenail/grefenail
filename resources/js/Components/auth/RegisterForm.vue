@@ -5,7 +5,7 @@
         </template>
 
         <template #content>
-            <h3 class="font-bold text-lg mb-3">Welcome to Airbnb</h3>
+            <h3 class="font-bold text-lg mb-3">Welcome to Petty!</h3>
             <form @submit.prevent="submit">
                 <div class="col-span-6 sm:col-span-4">
                     <TextInput

@@ -1,6 +1,6 @@
-
 <template>
-    <Layout title="Put your space in airbnb">
+
+    <Layout title="Share Your Space">
         <form @submit.prevent="submit">
             <div class="mt-8 w-4/6 mx-auto">
                 <div class="text-2xl font-bold capitalize">
@@ -9,9 +9,22 @@
                 <div class="text-sm font-bold underline my-2">
                     {{ props?.listing.location?.name }},  {{ props?.listing.location?.code }}
                 </div>
-                <div class="w-full rounded-xl hover:scale-100">
-                    <img class="object-cover w-full h-[500px]" alt="image" fetchpriority="high" rel="preload" :src="props.listing.image.url">
-                </div>
+
+                <Swiper 
+                :modules="[EffectCube, Pagination]" 
+                effect="cube"
+                :grabCursor="true"
+                :pagination="{ 
+                    bulletClass: 'custom-bullet-class',
+                    bulletElement: 'button',
+                    type: 'bullets',
+                 }"
+                >
+                    <SwiperSlide v-for="(image, index) in props.listing.images" :key="index">
+                        <img class="object-cover w-full h-[500px]" :src="image.url" alt="image" />
+                    </SwiperSlide>
+                </Swiper>
+
                 <div class="grid grid-cols-1 lg:grid-cols-3 md:gap-6 mt-6 mb-">
                     <div class="col-span-1 lg:col-span-2">
                         <div class="col-span-4 flex flex-col gap-4">
@@ -38,7 +51,7 @@
                     <div class="shadow p-4 h-72">
                         <div class="flex items-center mb-4">
                             <h4 class="font-semibold text-md">{{ props.listing.price }}</h4>
-                            <span class="text-sm ml-1">- nigth</span>
+                            <span class="text-sm ml-1">- night</span>
                         </div>
                         <div class="flex gap-2 flex-col">
                             <InputLabel for="start_date" value="Select a range range" />
@@ -70,11 +83,11 @@
 </template>
 
 <script setup>
+
     import { defineProps, onMounted, ref, watch } from 'vue';
     import { router } from '@inertiajs/vue3';
     import moment from 'moment';
     import { useNotification } from '@/Stores/notification.js';
-
     import DangerButton from '@/Components/DangerButton.vue';
     import InputLabel from '@/Components/InputLabel.vue';
     import Layout from '@/Layouts/Layout.vue';
@@ -83,11 +96,14 @@
     import AirDatepicker from 'air-datepicker';
     import 'air-datepicker/air-datepicker.css';
     import localeEn from 'air-datepicker/locale/en';
+    import { Swiper, SwiperSlide } from "swiper/vue";
+    import { EffectCube, Pagination } from "swiper";
+    import 'swiper/swiper-bundle.min.css';
 
     const props = defineProps({
         listing: {
             type: Object,
-            required: true,
+            required: true, 
         },
         normalPrice: {
             type: Number
@@ -182,3 +198,11 @@
         })
     }
 </script>
+
+<style>
+    .swiper {
+        overflow: visible;
+    }
+
+    
+</style>

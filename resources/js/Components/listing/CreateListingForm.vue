@@ -3,15 +3,16 @@
         <form @submit.prevent="submit" class="w-4/5">
             <div v-if="currentStep == steps.CATEGORY">
                 <div class="flex flex-col">
-                    <Heading title="Which of these best describes your place?" subtitle="Pick a category" />
-
+                    <Heading title="Which category best describes your place?" subtitle="Pick a category" />
                     <div class="grid grid-cols-5 gap-4 mt-4">
                         <template v-for="cat in $page.props.categories">
-                            <div :class="{ 'border-black': cat.id === category }" @click="category = cat.id"
-                                class="shadow rounded-xl border-2 p-4 transition cursor-pointer hover:border-black justify-between">
-                                <font-awesome-icon class="text-sm" :icon="cat.icon" disabled />
-                                <div class="font-semibold">{{ cat.name }}</div>
-                            </div>
+                            <div class="border rounded-xl border-gray-400">
+                                <div :class="{ 'border-black': cat.id === category }" @click="category = cat.id"
+                                    class="shadow rounded-xl border  p-4 transition cursor-pointer hover:border-black justify-between">
+                                    <font-awesome-icon class="text-sm" :icon="cat.icon" disabled />
+                                    <div class="font-semibold">{{ cat.name }}</div>
+                                </div>
+                            </div> 
                         </template>
                     </div>
                 </div>
@@ -79,9 +80,15 @@
                 <PrimaryButton type="button" v-if="currentStep > 1" @click="previousStep">
                     Previous
                 </PrimaryButton>
-                <DangerButton type="button" @click="nextStep" v-if="currentStep < totalSteps">
+                
+                <DangerButton 
+                    type="button" 
+                    @click="nextStep" 
+                    v-if="currentStep < totalSteps"
+                    :class="{ 'mx-auto': currentStep === 1, 'mt-12': currentStep === 1 }">
                     Continue
                 </DangerButton>
+
                 <DangerButton type="submit" v-if="currentStep === totalSteps" :class="{ 'bg-red-300' : processingForm }">
                     Save
                 </DangerButton>
@@ -164,8 +171,49 @@
     })
 
 
-    const nextStep = () => currentStep.value++;
+    const nextStep = () => {
+    // Add validation checks based on the current step
+    switch (currentStep.value) {
+        case steps.CATEGORY:
+            if (!category.value) {
+                store.addToast({ message: 'Please select a category', type: 'error' });
+                return; // Stop the function execution if validation fails
+            }
+            break;
+        case steps.LOCATION:
+            if (!location.value.length) {
+                store.addToast({ message: 'Please select a location', type: 'error' });
+                return; // Stop the function execution if validation fails
+            }
+            break;
+        case steps.DETAIL_LIVING:
+            // Add validation for detail living step if needed
+            break;
+        case steps.DESCRIPTION:
+            if (!title.value || !description.value) {
+                store.addToast({ message: 'Please fill in all fields', type: 'error' });
+                return; // Stop the function execution if validation fails
+            }
+            break;
+        case steps.IMAGES:
+            if (!myDropzone.files.length) {
+                store.addToast({ message: 'Please upload at least one image', type: 'error' });
+                return; // Stop the function execution if validation fails
+            }
+            break;
+        case steps.PRICES:
+            if (!price.value) {
+                store.addToast({ message: 'Please enter a price', type: 'error' });
+                return; // Stop the function execution if validation fails
+            }
+            break;
+        default:
+            break;
+    }
 
+    // If validation passes, proceed to the next step
+    currentStep.value++;
+};
     const previousStep = () =>  currentStep.value--;
 
     function submit()

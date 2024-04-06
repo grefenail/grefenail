@@ -47,7 +47,7 @@
         ">
         <div class="flex flex-col cursor-pointer" v-if="!user">
             <menu-item @click="toggleLoginForm">Login</menu-item>
-            <menu-item @click="toggleRegisterForm">Sing up</menu-item>
+            <menu-item @click="toggleRegisterForm">Sign up</menu-item>
         </div>
         <div class="flex flex-col cursor-pointer" v-else>
 

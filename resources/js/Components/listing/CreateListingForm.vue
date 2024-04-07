@@ -2,7 +2,7 @@
     <div class="flex justify-center">
         <form @submit.prevent="submit" class="w-4/5">
             <div v-if="currentStep == steps.CATEGORY">
-                <div class="flex flex-col">
+                <div class="flex flex-col mt-20">
                     <Heading title="Which category best describes your place?" subtitle="Pick a category" />
                     <div class="grid grid-cols-5 gap-4 mt-4">
                         <template v-for="cat in $page.props.categories">
@@ -26,25 +26,32 @@
                     placeholder="Select a location"
                     label="label" :options="getAll()"
                     value="label"
-                    :reduce="country => `${country.id}`" class="mt-4"
+                    :reduce="country => `${country.id}`" class=""
                 />
 
                 <Map :latlng="location" />
             </div>
 
             <div v-show="currentStep == steps.DETAIL_LIVING">
-                <div class="flex flex-col">
+                <div class="flex flex-col mt-5  ">
                     <Heading title="Share some basics about your place?" subtitle="What amenities do you have?" />
 
                     <br>
 
-                    <Counter title="Guests" subtitle="How many guests do you allow?"
+                    <Counter title="Rooms" subtitle="How many rooms do you have?" 
+                    @countChange="(n) => roomCount = n.value" />
+
+                    <Counter title="Pets" subtitle="How many pets do you allow?"
                         @countChange="(n) => guestCount = n.value" />
 
-                    <Counter title="Rooms" subtitle="How many rooms do you have??" @countChange="(n) => roomCount = n.value" />
-
-                    <Counter title="Bathrooms" subtitle="How many bathrooms do you have??"
+                    <Counter title="Bathrooms" subtitle="How many bathrooms do you have?"
                         @countChange="(n) => bathroomCount = n.value" />
+
+                    <Counter title="Bathrooms" subtitle="How many bathrooms do you have?"
+                    @countChange="(n) => bathroomCount = n.value" />
+
+                    <Counter title="Bathrooms" subtitle="How many bathrooms do you have?"
+                    @countChange="(n) => bathroomCount = n.value" />
                 </div>
             </div>
 
@@ -76,8 +83,9 @@
                 </div>
             </div>
 
-            <div class="flex justify-between align-middle mt-2">
-                <PrimaryButton type="button" v-if="currentStep > 1" @click="previousStep">
+            <br>
+            <div class="flex align-middle mt-2" :class="{'justify-end': currentStep === steps.CATEGORY, 'justify-between': currentStep > steps.CATEGORY}">
+                <PrimaryButton type="button" v-if="currentStep > steps.CATEGORY" @click="previousStep">
                     Previous
                 </PrimaryButton>
                 
@@ -85,7 +93,7 @@
                     type="button" 
                     @click="nextStep" 
                     v-if="currentStep < totalSteps"
-                    :class="{ 'mx-auto': currentStep === 1, 'mt-12': currentStep === 1 }">
+                    :class="{'mt-12': currentStep === steps.CATEGORY}">
                     Continue
                 </DangerButton>
 

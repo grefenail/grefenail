@@ -12,10 +12,11 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        Category::create(['name' => 'Houses', 'icon' => 'fa-solid fa-house']);
-        Category::create(['name' => 'Populars', 'icon' => 'fa-solid fa-fire']);
-        Category::create(['name' => 'Islands', 'icon' => 'fa-solid fa-umbrella-beach']);
-        Category::create(['name' => 'Ships', 'icon' => 'fa-solid fa-ship']);
-        Category::create(['name' => 'Artic', 'icon' => 'fa-solid fa-snowboarding']);
+        Category::create(['name' => 'Terrace', 'icon' => 'fa-solid fa-house']);
+        Category::create(['name' => 'Bungalow', 'icon' => 'fa-solid fa-fire']);
+        Category::create(['name' => 'Semi-D', 'icon' => 'fa-solid fa-circle-half']);
+        Category::create(['name' => 'Townhouse', 'icon' => 'fa-solid fa-umbrella-beach']);
+        Category::create(['name' => 'Apartment', 'icon' => 'fa-solid fa-building']);
+        Category::create(['name' => 'Condominium', 'icon' => 'fa-solid fa-snowboarding']);
     }
 }

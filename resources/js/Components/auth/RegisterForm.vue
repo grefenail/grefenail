@@ -12,7 +12,7 @@
                         id="name"
                         v-model="form.name"
                         autocomplete="off"
-                        placeholder="Enter your name:"
+                        placeholder="Enter your name"
                         type="text"
                         class="mt-1 block w-full"
                     />
@@ -26,7 +26,7 @@
                         id="email"
                         v-model="form.email"
                         autocomplete="off"
-                        placeholder="Email:"
+                        placeholder="Email"
                         class="mt-1 block w-full"
                     />
 
@@ -39,7 +39,7 @@
                         id="password"
                         v-model="form.password"
                         autocomplete="off"
-                        placeholder="Password:"
+                        placeholder="Password"
                         class="mt-1 block w-full"
                     />
 

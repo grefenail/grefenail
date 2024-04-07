@@ -11,7 +11,7 @@
                     <TextInput
                         id="email"
                         v-model="form.email"
-                        placeholder="Enter your email:"
+                        placeholder="Enter your email"
                         type="text"
                         class="mt-1 block w-full"
                     />
@@ -24,7 +24,7 @@
                         type="password"
                         id="password"
                         v-model="form.password"
-                        placeholder="Password:"
+                        placeholder="Password"
                         class="mt-1 block w-full"
                     />
 

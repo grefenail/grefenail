@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-    import { router } from '@inertiajs/vue3'
+    import { router } from '@inertiajs/vue3';
     import CategoryBox from '@/Components/navbar/CategoryBox.vue';
 
     const querySearch = ({id, name}) => router.get(route('home'), { search: name }, { preserveScroll: true })

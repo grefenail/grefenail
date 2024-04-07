@@ -3,10 +3,9 @@
         <Container>
 
             <ToastList />
-
-            <div class="text-center mt-20 flex justify-center w-full lg:w-3/6 mx-auto">
-                <div class="w-full lg:w-7/12 mt-12">
-                    <div v-show="!showFormListing">
+            <div class="text-center flex justify-center w-full lg:w-3/6 mx-auto ">
+                <div class="w-full lg:w-7/12 ">
+                    <div v-show="!showFormListing" class="mt-20">
                         <h1 class="text-6xl font-bold text-[#FF385C]">
                             Petty
                         </h1>

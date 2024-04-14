@@ -16,7 +16,7 @@ return new class extends Migration
             $table->text('url')->comment("Url of the image");
 
             $table->unsignedBigInteger('listingId');
-            $table->foreign('listingId')->references('id')->on('listing');
+            $table->foreign('listingId')->references('id')->on('listings');
 
             $table->timestamps();
         });

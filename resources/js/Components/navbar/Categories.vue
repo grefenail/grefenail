@@ -3,7 +3,7 @@
         pt-4
         flex
         items-center
-        justify-between
+        justify-evenly
         overflow-x-auto
     ">
 

@@ -17,13 +17,7 @@ class ReservationController extends Controller
 
             $listing = Listing::where('id', $request->listingId)->first();
 
-            $totalAmount = $reservationService->getTotalAmountReservation(
-                listingPrice: (int) $listing->getPriceWithOutFormat(),
-                startDate: $request->startDate,
-                endDate: $request->endDate
-            );
-
-            $reservation = $reservationService->saveReservation($request->validated(), $totalAmount);
+            $reservation = $reservationService->saveReservation($request->validated());
 
             event(new NewListingReservation($reservation));
 

@@ -59,7 +59,7 @@
             </div>
 
             <menu-item @click="logOut">Log Out</menu-item>
-            <menu-item @click="router.visit(route('listing.index'))">Add your Space</menu-item>
+            <menu-item @click="router.visit(route('listing.index'))">Add Your Pet</menu-item>
         </div>
     </div>
 

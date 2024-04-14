@@ -30,7 +30,6 @@ class Reservation extends Model
         'createdAt' => 'date',
         'startDate' => 'date',
         'endDate' => 'date',
-        'price' => MoneyCast::class
     ];
 
     protected $with = ['listing'];

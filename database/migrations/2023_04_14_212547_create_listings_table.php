@@ -11,25 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('listing', function (Blueprint $table) {
+        Schema::create('listings', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 200)->index()->comment("Name of the listing");
             $table->text('slug')->comment("Slug of the listing");
             $table->text('description')->nullable();
-            $table->integer('roomCount')->default(1);
-            $table->integer('bathroomCount')->default(1);
-            $table->integer('guestCount')->default(1);
-            $table->integer('price')->comment("This value is saved in cents");
-
-            $table->unsignedBigInteger('locationId');
-            $table->foreign('locationId')->references('id')->on('location');
+            $table->string('petName', 100)->nullable()->comment("Name of the pet");
+            $table->string('address', 200)->nullable()->comment("Address of the listing");
+            $table->string('email')->nullable()->comment("Email of the owner");
+            $table->integer('petAge')->nullable()->comment("Age of the pet");
+            $table->string('contact', 20)->nullable()->comment("Contact number of the owner");
 
             $table->unsignedBigInteger('categoryId');
-            $table->foreign('categoryId')->references('id')->on('category');
-
+            $table->foreign('categoryId')->references('id')->on('categories');
+    
             $table->timestamps();
         });
     }
+    
 
     /**
      * Reverse the migrations.

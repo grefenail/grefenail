@@ -23,17 +23,18 @@ class StoreListingRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'category' => 'required|exists:category,id',
-            'location' => 'required|exists:location,id',
-            'guestCount' => 'required|min:1',
-            'roomCount' => 'required|min:1',
-            'bathroomCount' => 'required|min:1',
-            'title' => 'required|max:255',
-            'description' => 'required',
-            'image' => 'required',
-            'price' => 'required',
+            'category' => 'required|exists:categories,id',
+            'description' => 'required|string',
+            'petName' => 'nullable|string|max:100',
+            'ownerName' => 'nullable|string|max:100',
+            'address' => 'nullable|string|max:200',
+            'email' => 'nullable|email',
+            'petAge' => 'nullable|integer|min:0',
+            'contact' => 'nullable|string|max:20',
+            'image' => 'required|image', 
         ];
     }
+    
 
     protected function prepareForValidation(): void
     {

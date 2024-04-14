@@ -20,15 +20,17 @@ class ListingFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->text(100),
+            'slug' => $this->faker->slug(),
             'description' => $this->faker->text(200),
-            'roomCount' => $this->faker->numberBetween(1, 8),
-            'bathroomCount' => $this->faker->numberBetween(1, 8),
-            'guestCount' => $this->faker->numberBetween(1, 20),
-            'price' => $this->faker->numberBetween(1000, 18000),
-            'locationId' => Location::inRandomOrder()->first()->id,
+            'petName' => $this->faker->firstName(),
+            'ownerName' => $this->faker->name(),
+            'address' => $this->faker->address(),
+            'email' => $this->faker->unique()->safeEmail(),
+            'petAge' => $this->faker->numberBetween(1, 15),
+            'contact' => $this->faker->phoneNumber(),
             'categoryId' => Category::inRandomOrder()->first()->id,
             'userId' => User::inRandomOrder()->first()->id,
         ];
     }
+    
 }

@@ -15,45 +15,26 @@ class Listing extends Model
 {
     use HasFactory;
 
-    protected $table = 'listing';
+    protected $table = 'listings';
 
     protected $fillable = [
-        'title',
         'slug',
         'description',
-        'roomCount',
-        'bathroomCount',
-        'guestCount',
-        'locationId',
+        'petName',
+        'ownerName',
+        'address',
+        'email',
+        'petAge',
+        'contact',
         'categoryId',
         'userId',
-        'price',
     ];
 
-    protected $casts = [
-        'price' => MoneyCast::class
-    ];
-
-    protected $with = ['location', 'category', 'user', 'images', 'image'];
+    protected $with = ['category', 'user', 'images', 'image'];
 
     public function getRouteKeyName()
     {
         return 'slug';
-    }
-
-    protected function title(): Attribute
-    {
-        return Attribute::make(
-            set: fn ($value) => [
-                'title' => Str::headline($value),
-                'slug' => Str::slug($value, '-'),
-            ],
-        );
-    }
-
-    public function getPriceWithOutFormat()
-    {
-        return round($this->getRawOriginal('price') / 100);
     }
 
     public function location(): BelongsTo

@@ -4,6 +4,8 @@ namespace App\Services;
 
 use App\Models\Listing;
 use App\Models\User;
+use Illuminate\Support\Str;
+
 
 class ListingService
 {
@@ -20,15 +22,16 @@ class ListingService
     public function storeListing(array $data, $userId): Listing
     {
         return Listing::create([
-            'categoryId' => $data['category'],
-            'locationId' => $data['location'],
-            'guestCount' => $data['guestCount'],
-            'roomCount' =>  $data['roomCount'],
-            'bathroomCount' => $data['bathroomCount'],
-            'title' => $data['title'],
+            'slug' => Str::slug($data['petName']), 
             'description' => $data['description'],
-            'price' => $data['price'],
-            'userId' => $userId,
+            'petName' => $data['petName'],
+            'ownerName' => $data['ownerName'],
+            'address' => $data['address'],
+            'email' => $data['email'],
+            'petAge' => $data['petAge'],
+            'contact' => $data['contact'],
+            'categoryId' => $data['categoryId'],
+            'userId' => $userId, 
         ]);
     }
 

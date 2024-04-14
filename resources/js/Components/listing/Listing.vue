@@ -14,26 +14,19 @@
                 <font-awesome-icon icon="fa-solid fa-heart" class="fill-white absolute -top[2px] -right-[2px]" />
             </div>
         </div>
-        <div class="font-semibold text-lg mt-2">
-            {{ props.location }}
+        <br>
+        <div class="font-light text-neutral-500">
+            {{ props.petName }}
         </div>
         <div class="font-light text-neutral-500">
-            {{ props.category }}
-        </div>
-        <div class="flex items-center gap-1 mt-1">
-            <div class="font-semibold">
-                {{ props.price }}
-            </div>
-            <div class="font-ligth">
-                / Night
-            </div>
+            {{ props.address }}
         </div>
     </div>
 </Link>
 </template>
 
 <script setup>
-    const props = defineProps(['price', 'title', 'slug', 'location', 'category', 'image']);
+    const props = defineProps(['petName', 'slug', 'category', 'image', 'address']);
     import { Link } from '@inertiajs/vue3';
 </script>
 

@@ -9,22 +9,13 @@ use Ramsey\Uuid\Type\Integer;
 class ReservationService
 {
 
-    public function getTotalAmountReservation(int $listingPrice, $startDate, $endDate): int
-    {
-        $days = daysBetweenDates($startDate, $endDate);
 
-        $totalAmount = $days * $listingPrice;
-
-        return $totalAmount;
-    }
-
-    public function saveReservation(array $data, int $totalAmount): Reservation
+    public function saveReservation(array $data): Reservation
     {
         return Reservation::create([
             'listingId' => $data['listingId'],
             'startDate' => $data['startDate'],
             'endDate' => $data['endDate'],
-            'totalPrice' => $totalAmount,
             'createdAt' => now()->toDateString(),
         ]);
     }

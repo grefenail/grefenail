@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('category', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name', 200)->unique()->index()->comment('Name of the category');
             $table->text('icon')->comment('Icon (Font awesome 6)');

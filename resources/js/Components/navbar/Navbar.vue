@@ -4,7 +4,7 @@
             <Container>
                 <div class="flex items-center justify-between gap-3 md:gap-0">
                     <Logo />
-                    <Search />
+                    <!-- <Search /> -->
                     <MenuUser />
                 </div>
             </Container>

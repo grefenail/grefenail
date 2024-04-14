@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function __invoke(Request $request)
     {
-        $query = Listing::with(['location', 'category', 'image'])
+        $query = Listing::with(['category', 'image'])
             ->when($request->filled('search'), function ($query) use ($request)
             {
                 $query->whereHas('category',function($query) use($request)
@@ -22,15 +22,14 @@ class HomeController extends Controller
             ->withQueryString()
             ->through(fn ($u) => [
                 'id' => $u->id,
-                'name' => $u->name,
+                'petName' => $u->petName,
                 'slug' => $u->slug,
-                'price' => $u->price,
-                'title' => $u->title,
                 'category' => $u->category->name ?? '',
-                'location' => $u->location->name ?? '',
                 'image' => $u->image->url ?? '',
+                'address' => $u->address,
             ]);
-
+    
+       
         return inertia('Home', [
             'listings' => $query,
 

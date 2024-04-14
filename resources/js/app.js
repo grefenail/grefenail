@@ -25,7 +25,9 @@ import {
     faShip,
     faSnowboarding,
     faMinus,
-    faPlus
+    faPlus,
+    faDog,
+    faCat
 } from '@fortawesome/free-solid-svg-icons'
 
 import { faFacebook, faGoogle, faGithub } from '@fortawesome/free-brands-svg-icons'
@@ -45,7 +47,9 @@ library.add(
     faShip,
     faSnowboarding,
     faMinus,
-    faPlus
+    faPlus,
+    faDog,
+    faCat
 )
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';

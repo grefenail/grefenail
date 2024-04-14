@@ -40,9 +40,9 @@ class ListingController extends Controller
 
     public function show(Listing $listing)
     {
+        //dd($listing);
         return inertia('Listing/Show', [
             'listing' => $listing,
-            'normalPrice' => $listing->getPriceWithOutFormat()
         ]);
     }
 

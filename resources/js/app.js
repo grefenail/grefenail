@@ -27,7 +27,8 @@ import {
     faMinus,
     faPlus,
     faDog,
-    faCat
+    faCat,
+    faCheck,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { faFacebook, faGoogle, faGithub } from '@fortawesome/free-brands-svg-icons'
@@ -49,7 +50,8 @@ library.add(
     faMinus,
     faPlus,
     faDog,
-    faCat
+    faCat,
+    faCheck,
 )
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';

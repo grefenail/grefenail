@@ -18,71 +18,46 @@
                 </div>
             </div>
 
-            <!-- <div v-if="currentStep == steps.LOCATION">
-                <Heading title="Where is your place located?" subtitle="Help guest find you!" />
-
-                <v-select
-                    v-model="location"
-                    placeholder="Select a location"
-                    label="label" :options="getAll()"
-                    value="label"
-                    :reduce="country => `${country.id}`" class=""
-                />
-
-                <Map :latlng="location" />
-            </div> -->
-
-            <!-- <div v-show="currentStep == steps.DETAIL_LIVING">
+           <div v-show="currentStep == steps.VACCINATION_DETAILS">
                 <div class="flex flex-col mt-5  ">
                     <Heading title="Share some basics about your place?" subtitle="What amenities do you have?" />
-
                     <br>
-
-                    <Counter title="Rooms" subtitle="How many rooms do you have?" 
+                    <VaccinationListItem title="Rooms" subtitle="How many rooms do you have?" 
                     @countChange="(n) => roomCount = n.value" />
 
-                    <Counter title="Pets" subtitle="How many pets do you allow?"
+                    <VaccinationListItem title="Pets" subtitle="How many pets do you allow?"
                         @countChange="(n) => guestCount = n.value" />
 
-                    <Counter title="Food" subtitle="How many times do you feed the pet?"
+                    <VaccinationListItem title="Food" subtitle="How many times do you feed the pet?"
                         @countChange="(n) => bathroomCount = n.value" />
 
-                    <Counter title="Walks" subtitle="How many times do you walk the pet?"
+                    <VaccinationListItem title="Walks" subtitle="How many times do you walk the pet?"
                     @countChange="(n) => bathroomCount = n.value" />
                 </div>
-            </div> -->
+            </div>
 
             <div v-if="currentStep == steps.DESCRIPTION">
                 <div class="flex flex-col ">
                     <Heading title="Enter the Essentials" subtitle="Short and sweet works best!" />
-
                     <TextInput id="petName" v-model="petName" placeholder="Pet Name" type="text" class="my-2 block w-full" />
-                    <TextInput id="ownerName" v-model="ownerName" placeholder="Owner Name" type="text" class="my-2 block w-full" />
-                    <TextInput id="address" v-model="address" placeholder="Address" type="text" class="my-2 block w-full" />
-                    <TextInput id="email" v-model="email" placeholder="Email" type="text" class="my-2 block w-full" />
+                    <PetSizeSelect v-model="petSize"/>
                     <div class="flex">
                         <div class="w-1/2 mr-2">
                             <TextInput
                                 id="petAge"
                                 v-model="petAge"
-                                placeholder="Pet Age"
+                                placeholder="Approximate Pet Age"
                                 type="number"
                                 class="my-2 block w-full"
                                 inputmode="numeric"
                                 @input="validatePetAge($event)"
                             />
-                          </div>
-                        <div class="w-1/2 ml-2">
-                          <TextInput
-                            id="contact"
-                            v-model="contact"
-                            placeholder="Contact No."
-                            type="text"
-                            class="my-2 block w-full"
-                            inputmode="tel"
-                          />
                         </div>
-                      </div>
+                        <div class="w-1/2">
+                            <PetGenderSelect v-model="petGender" :petGender="petGender" />
+                        </div>
+                    </div>
+                    
                     <TextArea id="description" v-model="description" placeholder="Description" type="text"
                         class="my-2 block w-full" />
                 </div>
@@ -96,15 +71,6 @@
                     <div id="previews" class="flex justify-center mt-2"></div>
                 </div>
             </div>
-
-            <!-- <div v-if="currentStep == steps.PRICES">
-                <div class="flex flex-col mt-20">
-                    <Heading title="Now, set your price" subtitle="How much do you charge per night?" />
-
-                    <TextArea id="price" v-model="price" placeholder="Price:" type="number" class="my-2 block w-full" />
-                </div>
-            </div> -->
-
             <br>
             <div class="flex align-middle mt-2" :class="{'justify-end': currentStep === steps.CATEGORY, 'justify-between': currentStep > steps.CATEGORY}">
                 <PrimaryButton type="button" v-if="currentStep > steps.CATEGORY" @click="previousStep">
@@ -142,21 +108,15 @@
     import PrimaryButton from '@/Components/PrimaryButton.vue';
     import TextInput from '@/Components/TextInput.vue';
     import TextArea from '@/Components/TextArea.vue';
+    import PetSizeSelect from '@/Components/PetSizeSelect.vue';
+    import PetGenderSelect from '@/Components/PetGenderSelect.vue';
+    import VaccinationListItem from '@/Components/VaccinationListItem.vue';
 
     const processingForm = ref(false);
-
     const currentStep = ref(1);
     const category = ref('');
-    // const location = ref([]);
-    // const guestCount = ref(1);
-    // const roomCount = ref(1);
-    // const bathroomCount = ref(1);
     const petName = ref('');
-    const ownerName = ref('');
-    const address = ref('');
-    const email = ref('');
     const petAge = ref('');
-    const contact = ref('');
     const description = ref('');
 
     const store = useNotification();
@@ -164,13 +124,9 @@
     const steps = reactive({
         "CATEGORY": 1,
         "DESCRIPTION": 2,
-        "IMAGES": 3,
-        // "PRICES": 4,
-        // "LOCATION": 2,
-        // "DETAIL_LIVING": 2,
+        "VACCINATION_DETAILS": 3,
+        "IMAGES": 4,
     });
-
-    const { getAll } = useCountries();
 
     const totalSteps = computed(() =>
     {
@@ -201,81 +157,49 @@
             dictInvalidFileType: "You can't upload files of this type.",
         });
         myDropzone.on("addedfile", function (file) {
-            // console.log("Archivo agregado: ", file.name);
+            console.log(file.name);
         });
     })
 
     const validatePetAge = (event) => {
         let newValue = event.target.value;
 
-        // Check if newValue contains only numeric characters
         if (/^\d+$/.test(newValue)) {
-            newValue = parseInt(newValue); // Parse the value to an integer
-            newValue = Math.max(0, newValue); // Ensure value is not negative
-            petAge.value = newValue; // Update the pet age value
+            newValue = parseInt(newValue); 
+            newValue = Math.max(0, newValue);
+            petAge.value = newValue; 
         } else {
-            // If newValue contains non-numeric characters, prevent it from being added to the input
-            event.target.value = ''; // Clear the input value
-            petAge.value = ''; // Update the pet age value to an empty string or any default value as needed
+            event.target.value = ''; 
+            petAge.value = '';
         }
     };
 
-    // const validateContact = (event) => {
-    //     let newValue = event.target.value;
-
-    //     // Check if newValue contains only numeric characters
-    //     if (/^\d+$/.test(newValue)) {
-    //         contact.value = newValue; // Update the contact value with the cleaned value
-    //     } else {
-    //         // If newValue contains non-numeric characters, prevent it from being added to the input
-    //         event.target.value = ''; // Clear the input value
-    //         contact.value = ''; // Update the contact value to an empty string or any default value as needed
-    //     }
-    // };
-
     const nextStep = () => {
-    // Add validation checks based on the current step
     switch (currentStep.value) {
         case steps.CATEGORY:
             if (!category.value) {
                 store.addToast({ message: 'Please select a category', type: 'error' });
-                return; // Stop the function execution if validation fails
+                return; 
             }
             break;
-        // case steps.LOCATION:
-        //     if (!location.value.length) {
-        //         store.addToast({ message: 'Please select a location', type: 'error' });
-        //         return; // Stop the function execution if validation fails
+        // case steps.DESCRIPTION:
+        //     if (!petName.value || !ownerName.value || !address.value || !email.value || !petAge.value || !contact.value || !description.value) {
+        //         store.addToast({ message: 'Please fill in all fields', type: 'error' });
+        //         return;
         //     }
         //     break;
-        // case steps.DETAIL_LIVING:
-        //     // Add validation for detail living step if needed
-        //     break;
-        case steps.DESCRIPTION:
-            if (!petName.value || !ownerName.value || !address.value || !email.value || !petAge.value || !contact.value || !description.value) {
-                store.addToast({ message: 'Please fill in all fields', type: 'error' });
-                return; // Stop the function execution if validation fails
-            }
-            break;
         case steps.IMAGES:
             if (!myDropzone.files.length) {
                 store.addToast({ message: 'Please upload at least one image', type: 'error' });
-                return; // Stop the function execution if validation fails
+                return; 
             }
             break;
-        // case steps.PRICES:
-        //     if (!price.value) {
-        //         store.addToast({ message: 'Please enter a price', type: 'error' });
-        //         return; // Stop the function execution if validation fails
-        //     }
-        //     break;
         default:
             break;
-    }
+        }
+        currentStep.value++;
+    };
 
-    // If validation passes, proceed to the next step
-    currentStep.value++;
-};
     const previousStep = () =>  currentStep.value--;
 
     function submit()
@@ -286,11 +210,7 @@
             category: category.value,
             description: description.value,
             petName: petName.value,
-            ownerName: ownerName.value,
-            address: address.value,
-            email: email.value,
             petAge: petAge.value,
-            contact: contact.value,
             image: myDropzone.files,
         });
 

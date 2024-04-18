@@ -9,14 +9,25 @@
             <form @submit.prevent="submit">
                 <div class="col-span-6 sm:col-span-4">
                     <TextInput
-                        id="name"
+                        id="first_name"
                         v-model="form.name"
                         autocomplete="off"
-                        placeholder="Enter your name"
+                        placeholder="First Name"
                         type="text"
                         class="mt-1 block w-full"
                     />
+                    <InputError :message="form.errors.name" class="mt-2" />
+                </div>
 
+                <div class="col-span-6 sm:col-span-4 mt-3">
+                    <TextInput
+                        id="last_name"
+                        v-model="form.name"
+                        autocomplete="off"
+                        placeholder="Last Name"
+                        type="text"
+                        class="mt-1 block w-full"
+                    />
                     <InputError :message="form.errors.name" class="mt-2" />
                 </div>
 
@@ -27,9 +38,8 @@
                         v-model="form.email"
                         autocomplete="off"
                         placeholder="Email"
-                        class="mt-1 block w-full"
+                        class="mt-1 block w-full"s
                     />
-
                     <InputError :message="form.errors.email" class="mt-2" />
                 </div>
 
@@ -42,7 +52,6 @@
                         placeholder="Password"
                         class="mt-1 block w-full"
                     />
-
                     <InputError :message="form.errors.password" class="mt-2" />
                 </div>
 
@@ -76,7 +85,7 @@
         errors: Object
     });
 
-    const form = useForm({name: "", email: "",password: ""});
+    const form = useForm({first_name: "", last_name: "",  email: "",password: ""});
 
     const submit = () =>
     {

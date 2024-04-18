@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Listing;
-use App\Models\ListingImages;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\ListingImage;
+use App\Models\Vaccination;
 use Illuminate\Database\Seeder;
 
 class ListingSeeder extends Seeder
@@ -15,7 +15,8 @@ class ListingSeeder extends Seeder
     public function run(): void
     {
         Listing::factory()
-            ->has(ListingImages::factory()->count(3), 'images')
+            ->has(ListingImage::factory()->count(3), 'images')
+            ->has(Vaccination::factory()->count(5), 'vaccination')
             ->count(50)
             ->create();
     }

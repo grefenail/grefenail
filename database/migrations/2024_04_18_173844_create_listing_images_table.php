@@ -11,9 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('listings', function (Blueprint $table) {
-            $table->unsignedBigInteger('userId')->after('categoryId');
-            $table->foreign('userId')->references('id')->on('users');
+        Schema::create('listing_images', function (Blueprint $table) {
+            $table->id();
+            $table->text('url');
+            $table->unsignedBigInteger('listing_id');
+
+            $table->foreign('listing_id')->references('id')->on('listings');
+
+            $table->timestamps();
         });
     }
 
@@ -22,8 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('listing', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('listing_images');
     }
 };

@@ -24,7 +24,7 @@
                transition
            "
        >
-       <font-awesome-icon icon="fa-solid fa-minus" />
+       <font-awesome-icon icon="fa-solid fa-check" />
        </div>
        <div
          className="
@@ -33,7 +33,6 @@
            text-neutral-600
          "
        >
-           {{ counter }}
          </div>
        <div
            @click="incrementCounter"
@@ -52,7 +51,7 @@
                transition
            "
        >
-       <font-awesome-icon icon="fa-solid fa-plus" />
+       <font-awesome-icon icon="fa-solid fa-xmark" />
        </div>
      </div>
    </div>

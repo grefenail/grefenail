@@ -20,7 +20,6 @@
         '15 kg - 20 kg',
         'More than 20 kg'
     ];
-
   
     let petSize = props.initialSize || ''; 
   

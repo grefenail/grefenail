@@ -6,9 +6,9 @@ use App\Models\Listing;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ListingImages>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ListingImage>
  */
-class ListingImagesFactory extends Factory
+class ListingImageFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,7 +19,7 @@ class ListingImagesFactory extends Factory
     {
         return [
             'url' => $this->faker->imageUrl($width = 640, $height = 480),
-            'listingId' => Listing::factory(),
+            'listing_id' => Listing::factory(),
         ];
     }
 }

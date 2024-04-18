@@ -4,7 +4,7 @@ namespace App\Contracts;
 
 use App\Models\Listing;
 
-interface ListingImage
+interface ListingImageContract
 {
     public function storeListingImage($image, Listing $listing);
 

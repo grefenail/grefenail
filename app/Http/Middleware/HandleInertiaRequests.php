@@ -3,9 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Http\Resources\CategoryResource;
-use App\Http\Resources\LocationResource;
 use App\Models\Category;
-use App\Models\Location;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -45,7 +43,6 @@ class HandleInertiaRequests extends Middleware
                 'toast' => fn () => $request->session()->get('toast'),
             ],
             'categories' => CategoryResource::collection(Category::getAllCategories()),
-            'locations' => LocationResource::collection(Location::all()),
             'leafletAccessToken' => config('leaflet.access_token')
         ]);
     }

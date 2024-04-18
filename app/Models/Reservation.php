@@ -18,25 +18,24 @@ class Reservation extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'userId',
-        'listingId',
-        'startDate',
-        'endDate',
-        'totalPrice',
-        'createdAt',
+        'user_id',
+        'listing_id',
+        'start_date',
+        'created_at',
+        'updated_at',
     ];
 
     protected $casts = [
-        'createdAt' => 'date',
-        'startDate' => 'date',
-        'endDate' => 'date',
+        'start_date' => 'date',
+        'created_at' => 'date',
+        'updated_at' => 'date',
     ];
 
     protected $with = ['listing'];
 
     public function listing(): BelongsTo
     {
-        return $this->belongsTo(Listing::class, 'listingId');
+        return $this->belongsTo(Listing::class, 'listing_id', 'id');
     }
 
 }

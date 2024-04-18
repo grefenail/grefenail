@@ -6,7 +6,7 @@ use App\Access\AuthTypes;
 use App\Factories\AuthFactory;
 use App\Http\Requests\LoginRequest;
 use App\Models\User;
-use App\Strategy\AuthContext;
+use App\Strategy\AuthStrategy;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +16,6 @@ use Illuminate\Support\Str;
 
 class LoginController extends Controller
 {
-
     public function login(LoginRequest $request): RedirectResponse
     {
         $credentials = $request->validated();
@@ -54,7 +53,7 @@ class LoginController extends Controller
     {
         $authenticationInstance = AuthFactory::getAuthInstance($driver);
 
-        $context = new AuthContext($authenticationInstance);
+        $context = new AuthStrategy($authenticationInstance);
         $context->makeLogin();
 
         return redirect()->route('home')->with('toast', 'Login successful');

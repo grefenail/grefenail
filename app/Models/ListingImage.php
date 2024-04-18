@@ -5,13 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Location extends Model
+class ListingImage extends Model
 {
     use HasFactory;
 
-    protected $table = 'locations';
+    protected $table = 'listing_images';
+
     protected $fillable = [
-        'name',
-        'code',
+        'url',
+        'listing_id',
     ];
+
 }

@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Requests;
-
-use App\Models\Location;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreListingRequest extends FormRequest
@@ -35,12 +33,4 @@ class StoreListingRequest extends FormRequest
         ];
     }
     
-
-    protected function prepareForValidation(): void
-    {
-        $location = Location::where('code', $this->location)->first()?->id;
-
-        $this->merge(['location' => $location]);
-    }
-
 }

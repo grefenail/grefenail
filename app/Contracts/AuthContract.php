@@ -2,7 +2,7 @@
 
 namespace App\Contracts;
 
-interface AuthStrategy
+interface AuthContract
 {
     public function login();
 }

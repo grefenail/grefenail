@@ -2,12 +2,12 @@
 
 namespace App\Access;
 use Laravel\Socialite\Facades\Socialite;
-use App\Contracts\AuthStrategy;
+use App\Contracts\AuthContract;
 use Illuminate\Support\Str;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-class AuthGithub implements AuthStrategy
+class AuthGithub implements AuthContract
 {
     public function login()
     {

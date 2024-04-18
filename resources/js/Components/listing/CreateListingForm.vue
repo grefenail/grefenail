@@ -20,19 +20,17 @@
 
            <div v-show="currentStep == steps.VACCINATION_DETAILS">
                 <div class="flex flex-col mt-5  ">
-                    <Heading title="Share some basics about your place?" subtitle="What amenities do you have?" />
+                    <Heading title="Share us some vaccination details" subtitle="Which vaccinations has your pet been administered?" />
                     <br>
-                    <VaccinationListItem title="Rooms" subtitle="How many rooms do you have?" 
+                    <VaccinationListItem title="Canine Parvovirus"
                     @countChange="(n) => roomCount = n.value" />
 
-                    <VaccinationListItem title="Pets" subtitle="How many pets do you allow?"
-                        @countChange="(n) => guestCount = n.value" />
+                    <VaccinationListItem title="Canine Distempur"
+                    @countChange="(n) => guestCount = n.value" />
 
-                    <VaccinationListItem title="Food" subtitle="How many times do you feed the pet?"
-                        @countChange="(n) => bathroomCount = n.value" />
-
-                    <VaccinationListItem title="Walks" subtitle="How many times do you walk the pet?"
+                    <VaccinationListItem title="Rabies"
                     @countChange="(n) => bathroomCount = n.value" />
+
                 </div>
             </div>
 

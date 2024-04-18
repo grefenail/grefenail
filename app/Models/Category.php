@@ -14,9 +14,9 @@ class Category extends Model
 
     protected $fillable = [
         'name',
+        'icon',
     ];
 
-    // Querys
     public static function getAllCategories()
     {
         return Cache::remember('getAllCategories', config('cachetime.1_day_on_seconds') , function ()

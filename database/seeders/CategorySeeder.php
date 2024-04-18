@@ -12,7 +12,7 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        Category::create(['name' => 'Dogs', 'icon' => 'fa-solid fa-dog']);
-        Category::create(['name' => 'Cats', 'icon' => 'fa-solid fa-cat']);
+        Category::create(['name' => 'Dog', 'icon' => 'fa-solid fa-dog']);
+        Category::create(['name' => 'Cat', 'icon' => 'fa-solid fa-cat']);
     }
 }

@@ -4,12 +4,9 @@
         <form @submit.prevent="submit">
             <div class="mt-8 w-4/6 mx-auto">
                 <div class="text-2xl font-bold capitalize">
-                    {{ props.listing.petName }}
+                    {{ props.listing.pet_name }}
                 </div>
                 <br>
-                <!-- <div class="text-sm font-bold underline my-2">
-                    {{ props?.listing.location?.name }},  {{ props?.listing.location?.code }}
-                </div> -->
 
                 <Swiper 
                 :modules='[EffectCube, Pagination]'
@@ -21,7 +18,7 @@
                     type: 'bullets',
                  }"
                 >
-                    <SwiperSlide v-for="(image, index) in props.listing.images" :key="index">
+                    <SwiperSlide v-for="image in props.listing.images">
                         <img class="object-cover w-full h-[500px]" :src="image.url" alt="image" />
                     </SwiperSlide>
                 </Swiper>
@@ -31,7 +28,7 @@
                         <div class="col-span-4 flex flex-col gap-4">
                             <div class="flex flex-col gap-2">
                                 <div class="flex gap-2 text-xl font-semibold">
-                                    Owned by {{ props.listing.user.name }}
+                                    Owned by {{ props.listing.user.first_name }}
                                 </div>
                             </div>
                             <div class="flex flex-row items-center gap-4 text-neutral-600">
@@ -39,25 +36,10 @@
                                 </div>
                             </div>
                         </div>
-                        <ListingDetails :listing="props.listing" />
+                        <ListingDetail :listing="props.listing"/>
 
-                        <!-- <Map :latlng="props.listing.location.code" /> -->
                     </div>
                     <div class="shadow p-4">
-                        <!-- <div class="flex gap-2 flex-col"> -->
-                            <!-- <InputLabel for="start_date" value="Select a range range" />
-                            <input type="text" id="date_range" class="w-full"> -->
-                            <!-- <div class="w-full">
-
-                                <input v-model="form.startDate" type="date" id="start_date" class="w-full">
-                            </div>
-                            <div class="w-full">
-                                <InputLabel for="end_date" value="End date" />
-                                <input v-model="form.endDate" type="date" id="end_date" class="w-full" placeholder="yyyy-mm-dd">
-                            </div> -->
-                        <!-- </div> -->
-
-
                         <DangerButton type="submit" :class="{ 'opacity-25': btnDisabled }" class="w-full" :disabled=btnDisabled v-if="$page.props.auth.user">
                             Adopt
                         </DangerButton>
@@ -80,7 +62,7 @@
     import InputLabel from '@/Components/InputLabel.vue';
     import Layout from '@/Layouts/Layout.vue';
     import Map from '@/Components/Map.vue'
-    import ListingDetails from '@/Components/ListingDetails.vue'
+    import ListingDetail from '@/Components/ListingDetail.vue'
 
     import AirDatepicker from 'air-datepicker';
     import 'air-datepicker/air-datepicker.css';
@@ -102,30 +84,6 @@
     const endDate = ref(moment().add(2, 'days').format("DD/MM/YYYY"));
     const btnDisabled = ref(false);
 
-    // onMounted(() =>
-    // {
-    //     new AirDatepicker('#date_range', {
-    //             dateFormat: "dd/MM/yyyy",
-    //             selectedDates: [new Date(), new Date().setDate(new Date().getDate() + 2)],
-    //             minDate: new Date(),
-    //             range: true,
-    //             multipleDatesSeparator: ' - ',
-    //             locale: localeEn,
-    //             onSelect({date, formattedDate, datepicker}) {
-    //                 if(formattedDate.length <= 1)
-    //                 {
-    //                     store.addToast({message: 'Please donde forget to select the end date'});
-    //                     btnDisabled.value = true;
-    //                     return false;
-    //                 }
-
-    //                 btnDisabled.value = false;
-    //                 startDate.value = formattedDate[0];
-    //                 endDate.value = formattedDate[1];
-    //             }
-    //         }
-    //     )
-    // });
 
     watch(endDate,  (endNewValue, endOldValue) =>
     {

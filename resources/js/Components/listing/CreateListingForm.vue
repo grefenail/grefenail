@@ -8,13 +8,40 @@
                         <template v-for="cat in $page.props.categories">
                             <div class="border rounded-xl border-gray-400">
                                 <div :class="{ 'border-black': cat.id === category }" @click="category = cat.id"
-                                    class="shadow rounded-xl border  p-4 transition cursor-pointer hover:border-black justify-between">
+                                    class="shadow rounded-xl border p-4 transition cursor-pointer hover:border-black justify-between">
                                     <font-awesome-icon class="text-sm" :icon="cat.icon" disabled />
                                     <div class="font-semibold">{{ cat.name }}</div>
                                 </div>
                             </div> 
                         </template>
                     </div>
+                </div>
+            </div>
+
+            <div v-if="currentStep == steps.DESCRIPTION">
+                <div class="flex flex-col ">
+                    <Heading title="Enter the Essentials" subtitle="Short and sweet works best!" />
+                    <TextInput id="pet_name" v-model="pet_name" placeholder="Pet Name" type="text" class="my-2 block w-full" />
+                    <PetSizeSelect v-model="pet_size"/>
+                    <div class="flex">
+                        <div class="w-1/2 mr-2">
+                            <TextInput
+                                id="pet_age"
+                                v-model="pet_age"
+                                placeholder="Approximate Pet Age"
+                                type="number"
+                                class="my-2 block w-full"
+                                inputmode="numeric"
+                                @input="validatePetAge($event)"
+                            />
+                        </div>
+                        <div class="w-1/2">
+                            <PetGenderSelect v-model="pet_gender" :pet_gender="pet_gender" />
+                        </div>
+                    </div>
+                    
+                    <TextArea id="description" v-model="description" placeholder="Description" type="text"
+                        class="my-2 block w-full" />
                 </div>
             </div>
 
@@ -30,36 +57,9 @@
 
                     <VaccinationListItem title="Rabies"
                     @countChange="(n) => bathroomCount = n.value" />
-
                 </div>
             </div>
 
-            <div v-if="currentStep == steps.DESCRIPTION">
-                <div class="flex flex-col ">
-                    <Heading title="Enter the Essentials" subtitle="Short and sweet works best!" />
-                    <TextInput id="petName" v-model="petName" placeholder="Pet Name" type="text" class="my-2 block w-full" />
-                    <PetSizeSelect v-model="petSize"/>
-                    <div class="flex">
-                        <div class="w-1/2 mr-2">
-                            <TextInput
-                                id="petAge"
-                                v-model="petAge"
-                                placeholder="Approximate Pet Age"
-                                type="number"
-                                class="my-2 block w-full"
-                                inputmode="numeric"
-                                @input="validatePetAge($event)"
-                            />
-                        </div>
-                        <div class="w-1/2">
-                            <PetGenderSelect v-model="petGender" :petGender="petGender" />
-                        </div>
-                    </div>
-                    
-                    <TextArea id="description" v-model="description" placeholder="Description" type="text"
-                        class="my-2 block w-full" />
-                </div>
-            </div>
 
             <div v-show="currentStep == steps.IMAGES">
                 <div class="flex flex-col mt-20">
@@ -113,8 +113,9 @@
     const processingForm = ref(false);
     const currentStep = ref(1);
     const category = ref('');
-    const petName = ref('');
-    const petAge = ref('');
+    const pet_name = ref('');
+    const pet_age = ref('');
+    const pet_size = ref('');
     const description = ref('');
 
     const store = useNotification();
@@ -165,10 +166,10 @@
         if (/^\d+$/.test(newValue)) {
             newValue = parseInt(newValue); 
             newValue = Math.max(0, newValue);
-            petAge.value = newValue; 
+            pet_age.value = newValue; 
         } else {
             event.target.value = ''; 
-            petAge.value = '';
+            pet_age.value = '';
         }
     };
 
@@ -181,7 +182,7 @@
             }
             break;
         // case steps.DESCRIPTION:
-        //     if (!petName.value || !ownerName.value || !address.value || !email.value || !petAge.value || !contact.value || !description.value) {
+        //     if (!pet_name.value || !ownerName.value || !address.value || !email.value || !pet_age.value || !contact.value || !description.value) {
         //         store.addToast({ message: 'Please fill in all fields', type: 'error' });
         //         return;
         //     }
@@ -207,8 +208,8 @@
         const form = useForm({
             category: category.value,
             description: description.value,
-            petName: petName.value,
-            petAge: petAge.value,
+            pet_name: pet_name.value,
+            pet_age: pet_age.value,
             image: myDropzone.files,
         });
 

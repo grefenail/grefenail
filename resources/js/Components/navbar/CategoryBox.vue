@@ -16,7 +16,7 @@
    >
        <font-awesome-icon class="text-sm" :icon="icon" disabled />
         <div class="font-medium text-sm">
-            {{ name }}
+            {{ name }}s
         </div>
    </button>
 

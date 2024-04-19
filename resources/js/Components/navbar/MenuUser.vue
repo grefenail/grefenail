@@ -54,11 +54,11 @@
             <div
                 class="text-sm font-semibold py-3 px-4 hover:bg-neutral-100 transition cursor-pointer text-center border-b-2 border-neutral-200">
                 <template v-if="user">
-                    {{ user.name }}
+                    {{ user.first_name }} {{ user.last_name }}
                 </template>
             </div>
 
-            <menu-item @click="logOut">Log Out</menu-item>
+            <menu-item @click="logout">Log Out</menu-item>
             <menu-item @click="router.visit(route('listing.index'))">Add Your Pet</menu-item>
         </div>
     </div>
@@ -104,7 +104,7 @@
 
     const closeRegisterForm = () => showRegisterForm.value = false;
 
-    function logOut()
+    function logout()
     {
         router.visit(route('app.logout'), { method: 'post' });
         router.visit(route('home'));
@@ -126,7 +126,5 @@
             showUserMenu.value = false;
         }
     }
-
-
 
 </script>

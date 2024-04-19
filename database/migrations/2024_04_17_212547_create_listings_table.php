@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('pet_size');
             $table->unsignedBigInteger('pet_gender');
             $table->text('slug');
-            $table->boolean('sterile');
+            $table->boolean('is_sterile');
             $table->boolean('is_active')->default(false);
             $table->text('description');
             $table->unsignedBigInteger('category_id');

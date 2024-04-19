@@ -21,19 +21,17 @@ class ListingFactory extends Factory
      */
     public function definition(): array
     {
-    
         return [
             'pet_name' => $this->faker->firstName(),
             'pet_age' => $this->faker->numberBetween(1, 15),
             'pet_size' => Size::inRandomOrder()->first()->id,
             'pet_gender' => Gender::inRandomOrder()->first()->id,
             'slug' => $this->faker->slug(),
-            'sterile' => $this->faker->boolean(),
+            'is_sterile' => $this->faker->boolean(),
             'is_active' => $this->faker->boolean(),
             'description' => $this->faker->text(200),
             'category_id' => Category::inRandomOrder()->first()->id,
             'user_id' => User::inRandomOrder()->first()->id,
         ];
     }
-    
 }

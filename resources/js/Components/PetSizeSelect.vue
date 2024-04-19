@@ -1,5 +1,5 @@
     <template>
-        <select v-model="petSize" :class="inputClass" @change="$emit('change', petSize)">
+        <select v-model="pet_size" :class="inputClass" @change="$emit('change', pet_size)">
             <option value="" disabled >Pet Size</option>
             <option v-for="(size, index) in sizes" :key="index" :value="size">{{ size }}</option>
         </select>
@@ -21,7 +21,7 @@
         'More than 20 kg'
     ];
   
-    let petSize = props.initialSize || ''; 
+    let pet_size = props.initialSize || ''; 
   
     const inputClass = 'mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500';
   </script>

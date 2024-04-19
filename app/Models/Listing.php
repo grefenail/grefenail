@@ -29,7 +29,7 @@ class Listing extends Model
         'pet_gender',
         'pet_size',
         'slug',
-        'sterile',
+        'is_sterile',
         'is_active',
         'description',
         'category_id',

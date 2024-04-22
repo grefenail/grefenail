@@ -3,12 +3,13 @@
     <Layout title="Share Your Space">
         <form @submit.prevent="submit">
             <div class="mt-8 w-4/6 mx-auto">
+                
                 <div class="text-2xl font-bold capitalize">
                     {{ props.listing.pet_name }}
                 </div>
                 <br>
 
-                <Swiper 
+                <!-- <Swiper 
                 :modules='[EffectCube, Pagination]'
                 :effect="cube"
                 :grabCursor="true"
@@ -21,7 +22,15 @@
                     <SwiperSlide v-for="image in props.listing.images">
                         <img class="object-cover w-full h-[500px]" :src="image.url" alt="image" />
                     </SwiperSlide>
-                </Swiper>
+                </Swiper> -->
+
+                <Carousel class="relative w-full h-[500px]" v-slot="{currentSlide}">
+                    <Slide v-for="(image, index) in props.listing.images" :key="image.id">
+                        <div v-show="currentSlide === index + 1" class="absolute top-0 left-0 w-full max-h-full h-full ">
+                            <img class="object-cover w-full h-full" :src="image.url" alt="image" />
+                        </div>
+                    </Slide>
+                </Carousel>
 
                 <div class="grid grid-cols-1 lg:grid-cols-3 md:gap-6 mt-6 mb-">
                     <div class="col-span-1 lg:col-span-2">
@@ -45,9 +54,11 @@
                         </DangerButton>
                         <DangerButton class="w-full opacity-25 cursor-not-allowed" v-else>Log in to Adopt</DangerButton>
                     </div>
+                    
                 </div>
 
             </div>
+            
         </form>
     </Layout>
 </template>
@@ -69,8 +80,11 @@
     import localeEn from 'air-datepicker/locale/en';
     import { Swiper, SwiperSlide } from "swiper/vue";
     import { EffectCube, Pagination } from "swiper";
-    import 'swiper/swiper-bundle.min.css';
-    import 'swiper/swiper.min.css';
+    import 'swiper/swiper-bundle.min.css'
+    import 'swiper/swiper.min.css'
+
+    import Carousel from '@/Components/Carousel.vue'
+    import Slide from '@/Components/Slide.vue'
 
     const props = defineProps({
         listing: {

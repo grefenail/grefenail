@@ -7,7 +7,8 @@
             </div>
             <div class="w-full md:w-1/5 text-center mb-8 md:mb-0 ">
               <a href="#" class="block hover:text-white hover:text-lg transition">About Us</a>
-              <a href="#" class="block hover:text-white hover:text-lg mt-2 transition">Terms and Service</a>
+              <!-- route not work -->
+              <a href="{{ route('terms_and_service') }}" class="block hover:text-white hover:text-lg mt-2 transition">Terms and Service</a>
             </div>
             <div class="w-full md:w-1/5 text-center mb-8 md:mb-0">
               <a href="#" class="block hover:text-white hover:text-lg">Collaboration</a>
@@ -31,6 +32,7 @@
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
     import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons'
     import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+    import { router } from '@inertiajs/vue3';
     import Logo from "@/Components/navbar/Logo.vue";
 
     const facebookIcon = faFacebookF;

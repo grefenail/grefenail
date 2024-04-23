@@ -31,3 +31,8 @@ Route::resource('/reservation', ReservationController::class)->only(['store']);
 Route::fallback(function () {
     return redirect()->route('home');
 });
+
+//cannot work
+Route::get('/terms-and-service', function () {
+    return view('TermsAndService'); 
+})->name('terms_and_service');

@@ -5,7 +5,7 @@ use App\Http\Controllers\ListingController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ReservationController;
-use App\Models\Reservation;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('app')->as('app.')->group(function()
@@ -18,6 +18,7 @@ Route::prefix('app')->as('app.')->group(function()
 Route::get('/', HomeController::class)->name('home');
 
 Route::resource('/listing', ListingController::class)->only(['index', 'store', 'show']);
+Route::resource('/profile', ProfileController::class)->only(['index']);
 
 Route::prefix('auth')->group(function()
 {

@@ -3,15 +3,15 @@
         <div class="py-4 border-b-[1px]">
             <Container>
                 <div class="flex items-center justify-between gap-3 md:gap-0">
-                    <Logo />
+                    <Logo/>
                     <!-- <Search /> -->
-                    <MenuUser />
+                    <MenuUser/>
                 </div>
             </Container>
         </div>
 
         <Container>
-            <Categories />
+            <Categories/>
         </Container>
     </div>
 </template>

@@ -19,7 +19,6 @@
                         <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
                         <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
                         <div class="col-md-12"><label class="labels">State</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                        <div class="col-md-12"><label class="labels">Area</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
                         <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
                         <div class="col-md-12"><label class="labels">Education</label><input type="text" class="form-control" placeholder="education" value=""></div>
                     </div>
@@ -40,6 +39,27 @@
         </div>
     </div>
 </template>
+
+<script setup>
+  import { onMounted } from 'vue';
+
+  onMounted(() => {
+    const bootstrapCSS = document.createElement('link');
+    bootstrapCSS.rel = 'stylesheet';
+    bootstrapCSS.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css';
+
+    const bootstrapJS = document.createElement('script');
+    bootstrapJS.src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js';
+
+    const jQuery = document.createElement('script');
+    jQuery.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js';
+
+    document.head.appendChild(bootstrapCSS);
+    document.head.appendChild(bootstrapJS);
+    document.head.appendChild(jQuery);
+  });
+</script>
+
 
 <style scoped>
     body {

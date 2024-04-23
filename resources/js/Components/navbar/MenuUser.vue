@@ -60,6 +60,7 @@
 
             <menu-item @click="logout">Log Out</menu-item>
             <menu-item @click="router.visit(route('listing.index'))">Add Your Pet</menu-item>
+            <menu-item @click="router.visit(route('profile.index'))">Edit Your Profile</menu-item>
         </div>
     </div>
 

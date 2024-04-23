@@ -1,6 +1,6 @@
 <template>
 
-    <Layout title="Share Your Space">
+    <Layout title="Add Your Pet">
         <form @submit.prevent="submit">
             <div class="mt-8 w-4/6 mx-auto">
                 <div class="text-2xl font-bold capitalize">

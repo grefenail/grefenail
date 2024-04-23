@@ -2,14 +2,14 @@
 
 namespace App\Access;
 
-use App\Contracts\ListingImage;
+use App\Contracts\ListingImageContract;
 use App\Models\Listing;
 use App\Strategy\CloudinaryStrategy;
 
 class ListingImageContext
 {
 
-    public function __construct(public ListingImage $strategy = new CloudinaryStrategy()){ }
+    public function __construct(public ListingImageContract $strategy = new CloudinaryStrategy()){ }
 
     public function store($file, Listing $listing)
     {

@@ -23,14 +23,12 @@ class StoreListingRequest extends FormRequest
         return [
             'category' => 'required|exists:categories,id',
             'description' => 'required|string',
-            'petName' => 'nullable|string|max:100',
-            'ownerName' => 'nullable|string|max:100',
-            'address' => 'nullable|string|max:200',
-            'email' => 'nullable|email',
-            'petAge' => 'nullable|integer|min:0',
-            'contact' => 'nullable|string|max:20',
-            'image' => 'required|image', 
+            'pet_name' => 'nullable|string|max:100',
+            'pet_age' => 'nullable|integer|min:0',
+            'pet_size' => 'nullable|exists:pet_sizes,id',
+            'pet_gender' => 'nullable|exists:pet_genders,id',
         ];
     }
+    
     
 }

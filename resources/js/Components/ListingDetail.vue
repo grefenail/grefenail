@@ -10,7 +10,7 @@
         <div class="text-md text-neutral-600">Size: {{ props.listing.size.size }} </div>
 
         <hr class="my-4" />
-        <div class="text-md text-neutral-600">Sterile: {{ props.listing.sterile ? 'Yes' : 'No'}} </div>
+        <div class="text-md text-neutral-600">Sterile: {{ props.listing.is_sterile ? 'Yes' : 'No'}} </div>
 
         <hr class="my-4" />
         <div class="text-md text-neutral-600">Address: {{ props.listing.user.address }} </div>
@@ -20,13 +20,10 @@
         <br>
         <div class="text-md text-neutral-600">{{ props.listing.description }}</div>
 
-        <hr class="my-4" />
+        <!-- <hr class="my-4" />
         <div class="text-md text-neutral-600">Vaccinations</div>
         <br>
-        <li class="list-group-item"> {{props.listing.vaccinations.vaccine.name }} </li>
-        <!-- <div v-for="vaccine in props.listing.vaccinations.vaccine.name"> 
-          <div class="text-md text-neutral-600" > {{ vaccine }} </div>
-        </div> -->
+        <li class="list-group-item"> {{props.listing.vaccinations.vaccine.name }} </li> -->
 
         <hr class="my-4" />
     </div>

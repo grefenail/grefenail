@@ -1,5 +1,5 @@
 <template>
-    <Layout title="Share Your Space">
+    <Layout title="Add Your Pet">
         <Container>
 
             <ToastList />

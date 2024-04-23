@@ -10,6 +10,9 @@ use App\Http\Requests\UpdateListingRequest;
 use App\Models\Listing;
 use App\Services\ListingService;
 use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Models\Size;
+use App\Models\Gender;
 
 class ListingController extends Controller
 {
@@ -21,7 +24,15 @@ class ListingController extends Controller
 
     public function index()
     {
-        return inertia('Listing/Index');
+        $categories = Category::all();
+        $pet_sizes = Size::all();
+        $pet_genders = Gender::all();
+
+        return inertia('Listing/Index', [
+            'categories' => $categories,
+            'pet_sizes' => $pet_sizes,
+            'pet_genders' => $pet_genders,
+        ]);
     }
 
     public function store(StoreListingRequest $request, ListingService $listingService, ListingImageContext $context)

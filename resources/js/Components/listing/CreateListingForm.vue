@@ -12,7 +12,7 @@
                                     <font-awesome-icon class="text-sm" :icon="cat.icon" disabled />
                                     <div class="font-semibold">{{ cat.name }}</div>
                                 </div>
-                            </div> 
+                            </div>
                         </template>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                     <Heading title="Enter the Essentials" subtitle="Short and sweet works best!" />
                     <TextInput id="pet_name" v-model="pet_name" placeholder="Pet Name" type="text" class="my-2 block w-full" />
                     <PetSizeSelect v-model="pet_size"/>
-                    <div class="flex">
+                    <div class="flex mt-2">
                         <div class="w-1/2 mr-2">
                             <TextInput
                                 id="pet_age"
@@ -36,7 +36,7 @@
                             />
                         </div>
                         <div class="w-1/2">
-                            <PetGenderSelect v-model="pet_gender" :pet_gender="pet_gender" />
+                            <PetGenderSelect v-model="pet_gender"/>
                         </div>
                     </div>
                     
@@ -45,7 +45,7 @@
                 </div>
             </div>
 
-           <div v-show="currentStep == steps.VACCINATION_DETAILS">
+           <!-- <div v-show="currentStep == steps.VACCINATION_DETAILS">
                 <div class="flex flex-col mt-5  ">
                     <Heading title="Share us some vaccination details" subtitle="Which vaccinations has your pet been administered?" />
                     <br>
@@ -58,8 +58,7 @@
                     <VaccinationListItem title="Rabies"
                     @countChange="(n) => bathroomCount = n.value" />
                 </div>
-            </div>
-
+            </div> -->
 
             <div v-show="currentStep == steps.IMAGES">
                 <div class="flex flex-col mt-20">
@@ -98,7 +97,6 @@
     import { useCountries } from '@/Composables/countries.js';
     import { useNotification } from '@/Stores/notification.js';
     import Dropzone from "dropzone";
-
     import Counter from '@/Components/Counter.vue';
     import DangerButton from '@/Components/DangerButton.vue';
     import Heading from '@/Components/Heading.vue';
@@ -116,6 +114,7 @@
     const pet_name = ref('');
     const pet_age = ref('');
     const pet_size = ref('');
+    const pet_gender = ref('');
     const description = ref('');
 
     const store = useNotification();
@@ -123,8 +122,8 @@
     const steps = reactive({
         "CATEGORY": 1,
         "DESCRIPTION": 2,
-        "VACCINATION_DETAILS": 3,
-        "IMAGES": 4,
+        // "VACCINATION_DETAILS": 3,
+        "IMAGES": 3,
     });
 
     const totalSteps = computed(() =>
@@ -210,9 +209,10 @@
             description: description.value,
             pet_name: pet_name.value,
             pet_age: pet_age.value,
+            pet_size: pet_size.value,
+            pet_gender: pet_gender.value,
             image: myDropzone.files,
         });
-
 
         form.post(route('listing.store'), {
             preserveScroll: true,

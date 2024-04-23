@@ -27,7 +27,7 @@ class HomeController extends Controller
                 'pet_gender' => $u->pet_gender, 
                 'pet_size' => $u->pet_size,
                 'slug' => $u->slug,
-                'sterile' => $u->sterile,
+                'is_sterile' => $u->is_sterile,
                 'is_active' => $u->is_active,
                 'category' => $u->category->name ?? '',
                 'description' => $u->description,

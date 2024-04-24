@@ -58,7 +58,7 @@
                 </template>
             </div>
 
-            <menu-item @click="logout">Log Out</menu-item>
+            <menu-item @click="logOut">Log Out</menu-item>
             <menu-item @click="router.visit(route('listing.index'))">Add Your Pet</menu-item>
             <menu-item @click="router.visit(route('profile.index'))">Edit Your Profile</menu-item>
         </div>
@@ -105,11 +105,10 @@
 
     const closeRegisterForm = () => showRegisterForm.value = false;
 
-    function logout()
+    function logOut()
     {
         router.visit(route('app.logout'), { method: 'post' });
-        router.visit(route('home'));
-        store.addToast({message: 'Success'})
+        store.addToast({message: 'Successfully logged out!'})
     }
 
     onMounted(() => {

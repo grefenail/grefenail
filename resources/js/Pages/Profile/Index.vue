@@ -1,109 +1,110 @@
 <template>
-    <div class="container rounded bg-white mt-5 mb-5">
-        <div class="row">
-            <div class="col-md-3 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">Edogaru</span><span class="text-black-50">edogaru@mail.com.my</span><span> </span></div>
+    <Layout title="Edit Your Profile">
+      <form action="">
+        <div class="container rounded bg-white mt-5 mb-5">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="md:col-span-1">
+              <div class="flex flex-col items-center p-3 py-5">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" id="dropdown-user-menu" width="100" height="100" aria-hidden="true" role="presentation" class="rounded cursor-pointer" focusable="false">
+                  <path d="m16 .7c-8.437 0-15.3 6.863-15.3 15.3s6.863 15.3 15.3 15.3 15.3-6.863 15.3-15.3-6.863-15.3-15.3-15.3zm0 28c-4.021 0-7.605-1.884-9.933-4.81a12.425 12.425 0 0 1 6.451-4.4 6.507 6.507 0 0 1 -3.018-5.49c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5a6.513 6.513 0 0 1 -3.019 5.491 12.42 12.42 0 0 1 6.452 4.4c-2.328 2.925-5.912 4.809-9.933 4.809z" fill="#717171"></path>
+                </svg>
+                <br>
+                <span class="font-bold">Edogaru</span>
+                <br>
+                <span class="text-gray-500">ganrongshen@gmail.com</span>
+              </div>
             </div>
-            <div class="col-md-5 border-right">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right">Profile Settings</h4>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
-                        <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
-                        <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
-                        <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                        <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                        <div class="col-md-12"><label class="labels">State</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                        <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
-                        <div class="col-md-12"><label class="labels">Education</label><input type="text" class="form-control" placeholder="education" value=""></div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
-                        <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>
-                    </div>
-                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+            <div class="md:col-span-2">
+              <div class="p-3 py-5">
+                <h4 class="text-left mb-3">Profile Settings</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <InputLabel for="first_name" class="labels">First Name</InputLabel>
+                    <TextInput id="first_name" type="text" class="input mt-1 w-full" autocomplete="first_name"></TextInput>
+                    <InputError class="mt-2" />
+                  </div>
+                  <div>
+                    <InputLabel for="last_name" class="labels">Last Name</InputLabel>
+                    <TextInput id="last_name" type="text" class="input mt-1 w-full" autocomplete="last_name"></TextInput>
+                    <InputError class="mt-2" />
+                  </div>
+                  <div>
+                    <InputLabel for="address" class="labels">Address</InputLabel>
+                    <TextInput id="address" type="text" class="input mt-1 w-full" autocomplete="address"></TextInput>
+                    <InputError class="mt-2" />
+                  </div>
+                  <div>
+                    <InputLabel for="contact_number" class="labels">Contact No.</InputLabel>
+                    <TextInput id="contact_number" type="text" class="input mt-1 w-full" autocomplete="contact_number"></TextInput>
+                    <InputError class="mt-2" />
+                  </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
-                    <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text" class="form-control" placeholder="experience" value=""></div> <br>
-                    <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
+              </div>
+              <div class="p-3 py-5 grid gap-4">
+                <h4 class="text-left mb-3">Login Credentials</h4>
+                <div>
+                  <InputLabel for="email" class="labels">Email</InputLabel>
+                  <TextInput id="email" type="text" class="input mt-1 w-full" autocomplete="email"></TextInput>
+                  <InputError class="mt-2" />
                 </div>
+                <div>
+                  <InputLabel for="new_password" class="labels">New Password</InputLabel>
+                  <TextInput id="new_password" type="text" class="input mt-1 w-full" autocomplete="new_password"></TextInput>
+                  <InputError class="mt-2" />
+                </div>
+                <div>
+                  <InputLabel for="confirm_password" class="labels">Confirm Password</InputLabel>
+                  <TextInput id="confirm_password" type="text" class="input mt-1 w-full" autocomplete="confirm_password"></TextInput>
+                  <InputError class="mt-2" />
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</template>
+        <div class="mt-5 text-center">
+          <button class="btn-primary profile-button" type="button">Save</button>
+        </div>
+      </form>
+    </Layout>
+  </template>
 
 <script setup>
-  import { onMounted } from 'vue';
+    import { onMounted, ref } from 'vue';
+    import { useForm } from '@inertiajs/vue3';
+    import Layout from '@/Layouts/Layout.vue';
+    import ActionMessage from '@/Components/ActionMessage.vue';
+    import FormSection from '@/Components/FormSection.vue';
+    import InputError from '@/Components/InputError.vue';
+    import InputLabel from '@/Components/InputLabel.vue';
+    import PrimaryButton from '@/Components/PrimaryButton.vue';
+    import SecondaryButton from '@/Components/SecondaryButton.vue';
+    import TextInput from '@/Components/TextInput.vue';
 
-  onMounted(() => {
-    const bootstrapCSS = document.createElement('link');
-    bootstrapCSS.rel = 'stylesheet';
-    bootstrapCSS.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css';
 
-    const bootstrapJS = document.createElement('script');
-    bootstrapJS.src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js';
+    onMounted(() => {
+        const bootstrapCSS = document.createElement('link');
+        bootstrapCSS.rel = 'stylesheet';
+        bootstrapCSS.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css';
 
-    const jQuery = document.createElement('script');
-    jQuery.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js';
 
-    document.head.appendChild(bootstrapCSS);
-    document.head.appendChild(bootstrapJS);
-    document.head.appendChild(jQuery);
-  });
+    });
+
+    const props = defineProps({
+        user: Object,
+    });
+
+    // const form = useForm({
+    //     first_name: props.user.first_name,
+    //     last_name: props.user.last_name,
+    //     email: props.user.email,
+    //     photo: null,
+    // });
+
 </script>
 
 
 <style scoped>
-    body {
-        background: rgb(99, 39, 120)
-    }
-
-    .form-control:focus {
-        box-shadow: none;
-        border-color: #BA68C8
-    }
-
-    .profile-button {
-        background: rgb(99, 39, 120);
-        box-shadow: none;
-        border: none
-    }
-
-    .profile-button:hover {
-        background: #682773
-    }
-
-    .profile-button:focus {
-        background: #682773;
-        box-shadow: none
-    }
-
-    .profile-button:active {
-        background: #682773;
-        box-shadow: none
-    }
-
-    .back:hover {
-        color: #682773;
-        cursor: pointer
-    }
-
     .labels {
         font-size: 11px
-    }
-
-    .add-experience:hover {
-        background: #BA68C8;
-        color: #fff;
-        cursor: pointer;
-        border: solid 1px #BA68C8
     }
 </style>

@@ -46,7 +46,6 @@
                             </div>
                         </div>
                         <ListingDetail :listing="props.listing"/>
-
                     </div>
                     <div class="shadow p-4">
                         <DangerButton type="submit" :class="{ 'opacity-25': btnDisabled }" class="w-full" :disabled=btnDisabled v-if="$page.props.auth.user">

@@ -56,4 +56,10 @@ class ListingController extends Controller
         ]);
     }
 
+    public function destroy(Listing $listing)
+    {
+
+    }
+
+
 }

@@ -7,12 +7,12 @@
     <NavBar></NavBar>
 
     <Container>
-        <main class="py-5">
-            <slot />
-        </main>
+        <slot />
     </Container>
 
-    <Footer/>
+    <br><br>
+
+    <Footer></Footer>
 
 </template>
 
@@ -33,3 +33,4 @@
     });
 
 </script>
+

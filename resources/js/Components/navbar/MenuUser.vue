@@ -37,7 +37,7 @@
                 bg-white
                 w-[13vw]
                 overflow-hidden
-                top-20
+                top-24
                 right-20
                 text-sm
                 z-10
@@ -55,7 +55,7 @@
                     </template>
                 </div>
 
-                <menu-item @click="logout">Log Out</menu-item>
+                <menu-item @click="logOut">Log Out</menu-item>
                 <menu-item @click="router.visit(route('listing.index'))">Add Your Pet</menu-item>
                 <menu-item @click="router.visit(route('profile.index'))">Edit Your Profile</menu-item>
             </div>

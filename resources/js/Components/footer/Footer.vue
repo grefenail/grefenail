@@ -32,6 +32,7 @@
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
     import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons'
     import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+    import Logo from "@/Components/navbar/Logo.vue";
     import { router } from '@inertiajs/vue3';
     const facebookIcon = faFacebookF;
     const instagramIcon = faInstagram;

@@ -43,4 +43,5 @@ class HomeController extends Controller
             'filters' => $request->only(['search'])
         ]);
     }
+
 }

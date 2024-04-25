@@ -103,11 +103,10 @@
 
     const closeRegisterForm = () => showRegisterForm.value = false;
 
-    function logout()
+    function logOut()
     {
         router.visit(route('app.logout'), { method: 'post' });
-        router.visit(route('home'));
-        store.addToast({message: 'Success'})
+        store.addToast({message: 'Successfully logged out!'})
     }
 
     onMounted(() => {

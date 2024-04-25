@@ -1,5 +1,5 @@
 <template>
-    <footer class="bg-footer-color text-gray-200 py-10 mt-12">
+    <footer class="bg-footer-color text-gray-200 py-5 mt-10">
         <div class="container mx-auto flex flex-wrap justify-center items-center ">
             <div class="w-full md:w-1/5 mb-8 md:mb-0 ">
               <Logo :imageLogo="logoSrc" />
@@ -33,8 +33,6 @@
     import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons'
     import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
     import { router } from '@inertiajs/vue3';
-    import Logo from "@/Components/navbar/Logo.vue";
-
     const facebookIcon = faFacebookF;
     const instagramIcon = faInstagram;
     const emailIcon = faEnvelope
@@ -43,6 +41,10 @@
   </script>
   
   <style scoped>
+    * {
+      text-decoration: none;
+    }
+
     .bg-footer-color {
         background-color: #C75859;
     }

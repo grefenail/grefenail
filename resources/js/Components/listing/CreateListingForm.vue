@@ -2,7 +2,7 @@
     <div class="flex justify-center">
         <form @submit.prevent="submit" class="w-4/5">
             <div v-if="currentStep == steps.CATEGORY">
-                <div class="flex flex-col mt-20">
+                <div class="flex flex-col mt-10">
                     <Heading title="What is your pet?" subtitle="Pick a category" />
                     <div class="grid grid-cols-5 gap-4 mt-4">
                         <template v-for="cat in $page.props.categories">
@@ -19,7 +19,7 @@
             </div>
 
             <div v-if="currentStep == steps.DESCRIPTION">
-                <div class="flex flex-col ">
+                <div class="flex flex-col mt-10">
                     <Heading title="Enter the Essentials" subtitle="Short and sweet works best!" />
                     <TextInput id="pet_name" v-model="pet_name" placeholder="Pet Name" type="text" class="my-2 block w-full" />
                     <PetSizeSelect v-model="pet_size"/>
@@ -61,7 +61,7 @@
             </div> -->
 
             <div v-show="currentStep == steps.IMAGES">
-                <div class="flex flex-col mt-20">
+                <div class="flex flex-col mt-10">
                     <Heading title="Add photos of your pet" subtitle="Show people what your pet looks like!" />
 
                     <div id="my-dropzone" class="dropzone mt-10"></div>
@@ -74,7 +74,7 @@
                     Back
                 </PrimaryButton>
                 
-                <DangerButton 
+                <DangerButton
                     type="button" 
                     @click="nextStep" 
                     v-if="currentStep < totalSteps"
@@ -83,7 +83,7 @@
                 </DangerButton>
 
                 <DangerButton type="submit" v-if="currentStep === totalSteps" :class="{ 'bg-red-300' : processingForm }">
-                    Save
+                    rs
                 </DangerButton>
             </div>
 

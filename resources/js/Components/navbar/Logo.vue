@@ -31,3 +31,20 @@ const props = defineProps({
 });
 
 </script>
+
+<style scoped>
+    * {
+        padding: 0;
+    }
+    
+    .link {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    #container {
+        width: 10%;
+    }
+    
+</style>

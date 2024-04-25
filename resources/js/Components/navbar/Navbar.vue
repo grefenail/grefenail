@@ -3,7 +3,7 @@
         <div class="py-4 border-b-[1px]">
             <Container>
                 <div class="flex items-center justify-between gap-3 md:gap-0">
-                    <Logo/>
+                    <Logo :imageLogo="logoSrc"/>
                     <!-- <Search /> -->
                     <MenuUser/>
                 </div>
@@ -22,4 +22,6 @@ import Logo from "@/Components/navbar/Logo.vue";
 import Search from "@/Components/navbar/Search.vue";
 import MenuUser from "@/Components/navbar/MenuUser.vue";
 import Categories from "@/Components/navbar/Categories.vue";
+
+const logoSrc = "../images/petty-logo.png";
 </script>

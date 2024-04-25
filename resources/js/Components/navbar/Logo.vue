@@ -1,5 +1,5 @@
 <template>
-    <Link :href="route('home')">
+   <Link :href="route('home')">
         <svg
             width="70%"
             height="70%"
@@ -21,5 +21,13 @@
 <script setup>
 import { Link } from "@inertiajs/vue3";
 
-const imageLogo = "../images/petty-logo.png";
+import { defineProps } from 'vue';
+
+const props = defineProps({
+    imageLogo: {
+        type: String,
+        required: true,
+    },
+});
+
 </script>

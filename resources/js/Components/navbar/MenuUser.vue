@@ -1,68 +1,66 @@
 <template>
     <div class="">
         <div class="flex flex-row items-center gap-3">
+          <div class="
+            flex
+            justify-between
+            align-middle
+            rounded-full
+            shadow-md
+            border-[1px]
+            border-neutral-200
+            px-2
+            py-1
+          ">
             <div class="
-                flex
-                justify-between
-                align-middle
-                rounded-full
-                shadow-md
-                border-[1px]
-                border-neutral-200
-                px-2
-                py-1
+              px-2.5 py-2
+              flex
+              items-center
+              gap-3
+              rounded-full
+              cursor-pointer
+              transition
             ">
-                <div class="
-                        px-2.5 py-2
-                        flex
-                        items-center
-                        gap-3
-                        rounded-full
-                        cursor-pointer
-                        transition
-                    ">
-                    <font-awesome-icon class="font-sm text-[#595959]" icon="fa-solid fa-bars" />
+              <font-awesome-icon class="font-sm text-[#595959]" icon="fa-solid fa-bars" />
+            </div>
+            <div class="hidden md:block">
+              <Avatar @toggleUserMenu="showUserMenu = !showUserMenu" />
+            </div>
+          </div>
+        </div>
+      </div>
+    <transition name="dropdown" class="dropdown">
+        <div v-if="showUserMenu" class="
+                absolute
+                rounded-xl
+                shadow-lg
+                bg-white
+                w-[13vw]
+                overflow-hidden
+                top-20
+                right-20
+                text-sm
+                z-10
+            ">
+            <div class="flex flex-col cursor-pointer" v-if="!user">
+                <menu-item @click="toggleLoginForm">Login</menu-item>
+                <menu-item @click="toggleRegisterForm">Sign up</menu-item>
+            </div>
+            <div class="flex flex-col cursor-pointer" v-else>
+
+                <div
+                    class="text-sm font-semibold py-3 px-4 hover:bg-neutral-100 transition cursor-pointer text-center border-b-2 border-neutral-200">
+                    <template v-if="user">
+                        {{ user.first_name }} {{ user.last_name }}
+                    </template>
                 </div>
-                <div class="
-                        hidden
-                        md:block
-                    ">
-                    <Avatar @toggleUserMenu="showUserMenu = !showUserMenu" />
-                </div>
+
+                <menu-item @click="logout">Log Out</menu-item>
+                <menu-item @click="router.visit(route('listing.index'))">Add Your Pet</menu-item>
+                <menu-item @click="router.visit(route('profile.index'))">Edit Your Profile</menu-item>
             </div>
         </div>
-    </div>
-
-    <div v-if="showUserMenu" class="
-            absolute
-            rounded-xl
-            shadow-lg
-            bg-white
-            w-[13vw]
-            overflow-hidden
-            top-20
-            right-20
-            text-sm
-            z-10
-        ">
-        <div class="flex flex-col cursor-pointer" v-if="!user">
-            <menu-item @click="toggleLoginForm">Login</menu-item>
-            <menu-item @click="toggleRegisterForm">Sign up</menu-item>
-        </div>
-        <div class="flex flex-col cursor-pointer" v-else>
-
-            <div
-                class="text-sm font-semibold py-3 px-4 hover:bg-neutral-100 transition cursor-pointer text-center border-b-2 border-neutral-200">
-                <template v-if="user">
-                    {{ user.first_name }} {{ user.last_name }}
-                </template>
-            </div>
-
-            <menu-item @click="logout">Log Out</menu-item>
-            <menu-item @click="router.visit(route('listing.index'))">Add Your Pet</menu-item>
-            <menu-item @click="router.visit(route('profile.index'))">Edit Your Profile</menu-item>
-        </div>
-    </div>
+    </transition>
 
     <LoginForm :showModal="showLoginForm" @closeLoginForm="closeLoginForm"/>
 
@@ -129,3 +127,18 @@
     }
 
 </script>
+
+<style scoped>
+  .dropdown-enter-active, .dropdown-leave-active {
+    transition: opacity 0.3s ease-out;
+  }
+  
+  .dropdown-enter-from, .dropdown-leave-to {
+    opacity: 0;
+  }
+  
+  .dropdown-enter-to, .dropdown-leave {
+    opacity: 1;
+  }
+
+</style>

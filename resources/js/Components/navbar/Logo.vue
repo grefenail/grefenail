@@ -9,7 +9,7 @@
                 class="hidden md:block cursor-pointer text-[#FF5171] font-bold"
             >
                 <image
-                    :xlink:href="logo"
+                    :xlink:href="props.source"
                     width="100%"
                     height="100%"
                 />
@@ -25,7 +25,7 @@ import { Link } from "@inertiajs/vue3";
 import { defineProps } from 'vue';
 
 const props = defineProps({
-    imageLogo: {
+    source: {
         type: String,
         required: true,
     },

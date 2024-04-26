@@ -8,7 +8,7 @@
             <div class="w-full md:w-1/5 text-center mb-8 md:mb-0 ">
               <a href="#" class="block hover:text-white hover:text-lg transition">About Us</a>
               <!-- route not work -->
-              <a href="{{ route('terms_and_service') }}" class="block hover:text-white hover:text-lg mt-2 transition">Terms and Service</a>
+              <a href="#" class="block hover:text-white hover:text-lg mt-2 transition">Terms and Service</a>
             </div>
             <div class="w-full md:w-1/5 text-center mb-8 md:mb-0">
               <a href="#" class="block hover:text-white hover:text-lg">Collaboration</a>

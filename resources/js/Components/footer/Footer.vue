@@ -2,7 +2,7 @@
     <footer class="bg-footer-color text-gray-200 py-5 mt-10">
         <div class="container mx-auto flex flex-wrap justify-center items-center ">
             <div class="w-full md:w-1/5 mb-8 md:mb-0 ">
-              <Logo :imageLogo="logoSrc" />
+              <!-- <Logo :source='"../images/petty-logo2.png"' /> -->
               <p>&copy; 2024 Petty. All rights reserved. </p>
             </div>
             <div class="w-full md:w-1/5 text-center mb-8 md:mb-0 ">
@@ -36,9 +36,7 @@
     import { router } from '@inertiajs/vue3';
     const facebookIcon = faFacebookF;
     const instagramIcon = faInstagram;
-    const emailIcon = faEnvelope
-
-    const logoSrc = "../images/petty-logo2.png";
+    const emailIcon = faEnvelope;
   </script>
   
   <style scoped>

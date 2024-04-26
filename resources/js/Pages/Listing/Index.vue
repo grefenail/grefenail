@@ -3,22 +3,19 @@
         <Container>
 
             <ToastList />
-            <div class="text-center flex justify-center w-full lg:w-3/6 mx-auto ">
-                <div class="w-full lg:w-7/12 ">
+            <div class="flex justify-center items-center height">
+                <div class="text-center ">
                     <div v-show="!showFormListing" class="slider">
                         <h1 class="text-6xl font-bold text-[#FF385C]">
                             Petty
                         </h1>
-
                         <p class="text-3xl font-bold mt-5">Find Your Pet a Loving Home</p> 
                         <div class="mt-8">
-                        <div class="font-bold">{{ currentValue }} pets</div>
+                            <div class="font-bold">{{ currentValue }} pets</div>
                             <div>are currently listed on the site</div> 
                         </div>
                         <br>
-
-                        <button @click="showFormListing = true"
-                            class="my-4 rounded-lg bg-gradient-to-r from-[#e61e4d] via-[#d70466] to-[#bd1e59] text-white px-4 py-3">
+                        <button @click="showFormListing = true" class="my-4 rounded-lg bg-gradient-to-r from-[#e61e4d] via-[#d70466] to-[#bd1e59] text-white px-4 py-3">
                             <p class="font-semibold">
                                 <font-awesome-icon icon="fa-solid fa-house" /> Start
                             </p>
@@ -26,6 +23,8 @@
                     </div>  
                 </div>
             </div>
+            
+            
 
             <transition>
                 <CreateListingForm v-if="showFormListing" />
@@ -47,7 +46,6 @@
 
     const currentValue = ref(7);
     const showFormListing = ref(false);
-    const lastDayOfMonth = ref(moment().endOf('month').format('D'));
 
 </script>
 
@@ -62,7 +60,8 @@
         opacity: 0;
     }
 
-    .slider {
-        margin-top: 30%;
+    .height {
+        height: 75vh;
     }
+
 </style>

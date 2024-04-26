@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Listing;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -13,9 +15,11 @@ class ProfileController extends Controller
     public function index()
     {
         $listings = Listing::all();
+        $user = Auth::user();
 
         return inertia('Profile/Index', [
-            'listings' => $listings
+            'listings' => $listings,
+            'user' => $user, 
         ]);
     }
 
@@ -54,9 +58,17 @@ class ProfileController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $user = User::findOrFail($request->user_id);
+
+        $user->update([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'contact' => $request->contact,
+            'address' => $request->address,
+        ]);
     }
 
     /**

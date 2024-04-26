@@ -4,11 +4,10 @@
         <Link class="link" :href="route('home')">
             <center>
                 <svg
-                width="100%"
-                height="100%"
+                width="80%"
+                height="80%"
                 viewBox="0 0 102 32"
                 class="hidden md:block cursor-pointer text-[#FF5171] font-bold"
-                preserveAspectRatio="xMidYMid meet"
             >
                 <image
                     :xlink:href="logo"

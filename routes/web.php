@@ -19,6 +19,7 @@ Route::get('/', HomeController::class)->name('home');
 
 Route::resource('/listing', ListingController::class)->only(['index', 'store', 'show', 'destroy']);
 Route::resource('/profile', ProfileController::class)->only(['index']);
+Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
 Route::prefix('auth')->group(function()
 {
@@ -31,8 +32,3 @@ Route::resource('/reservation', ReservationController::class)->only(['store']);
 Route::fallback(function () {
     return redirect()->route('home');
 });
-
-//cannot work
-Route::get('/terms-and-service', function () {
-    return view('TermsAndService');
-})->name('terms_and_service');

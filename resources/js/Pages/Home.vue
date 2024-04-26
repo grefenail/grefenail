@@ -3,10 +3,12 @@
     <Layout title="Home Page">
         <main class="py-5">
             <NoResults v-if="props.listings.data && props.listings.data.length <= 0" />
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8">
-                <Listing v-for="listing in props.listings.data" :key="listing.id" :listing="listing" class="listing-item"/>
-            </div>
+            <transition-group tag="div" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8"
+                appear
+                @before-enter="beforeEnter"
+                @enter="enter">            
+                        <Listing v-for="(listing, index) in props.listings.data" :key="listing.id" :listing="listing" class="listing-item" :data-index="index"/>    
+            </transition-group>
         </main>
     </Layout>
 </template>
@@ -16,6 +18,7 @@
     import Layout from '@/Layouts/Layout.vue';
     import Listing from '@/Components/listing/Listing.vue';
     import NoResults from '@/Components/listing/NoResults.vue';
+    import gsap from 'gsap';
 
     const props = defineProps({
         listings: {
@@ -25,6 +28,21 @@
         }
     });
 
+    const beforeEnter = (el) => {
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(100px)'
+
+    }
+
+    const enter = (el, done) => {
+        gsap.to(el,{
+            opacity: 1,
+            y:0,
+            duration:0.8,
+            onComplete: done,
+            delay: el.dataset.index * 0.05
+        })
+    }
 </script>
 
 <style scoped>

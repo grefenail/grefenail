@@ -14,7 +14,7 @@
 
         <!-- pagination -->
         <div class="absolute bottom-5 transform -translate-x-1/2 left-1/2 flex space-x-2">
-            <span v-for="(slide, index) in getSlideCount" :key="slide.id" @click="goToSlide(index)" :class="{'bg-gray-100 bg-opacity-50': index + 1 !== currentSlide, 'bg-red-600': index + 1 === currentSlide }" class="cursor-pointer inline-block w-4 h-4 rounded-full shadow-md transition-colors duration-300">
+            <span v-for="(slide, index) in getSlideCount" :key="slide.id" @click="goToSlide(index)" :class="{'bg-gray-100 bg-opacity-50': index + 1 !== currentSlide, 'pagination-highlight': index + 1 === currentSlide }" class="cursor-pointer inline-block w-3 h-3 rounded-full shadow-md transition-colors duration-300">
             </span>
         </div>
     </div>
@@ -60,4 +60,7 @@
 </script>
 
 <style>
+    .pagination-highlight{
+        background-color: #C75959
+    }
 </style>

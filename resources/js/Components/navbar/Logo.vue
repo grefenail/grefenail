@@ -1,5 +1,4 @@
 <template>
-    
     <center id="container">
         <Link class="link" :href="route('home')">
             <center>
@@ -23,7 +22,15 @@
 <script setup>
 import { Link } from "@inertiajs/vue3";
 
-const logo = "../images/petty-logo.png";
+import { defineProps } from 'vue';
+
+const props = defineProps({
+    imageLogo: {
+        type: String,
+        required: true,
+    },
+});
+
 </script>
 
 <style scoped>

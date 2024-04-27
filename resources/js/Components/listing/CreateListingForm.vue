@@ -2,7 +2,7 @@
     <div class="flex justify-center">
         <form @submit.prevent="submit" class="w-4/5">
             <div v-if="currentStep == steps.CATEGORY">
-                <div class="flex flex-col mt-10">
+                <div class="flex flex-col mt-20">
                     <Heading title="What is your pet?" subtitle="Pick a category" />
                     <div class="grid grid-cols-5 gap-4 mt-4">
                         <template v-for="cat in $page.props.categories">
@@ -83,7 +83,7 @@
                 </DangerButton>
 
                 <DangerButton type="submit" v-if="currentStep === totalSteps" :class="{ 'bg-red-300' : processingForm }">
-                    rs
+                    Save
                 </DangerButton>
             </div>
 
@@ -180,12 +180,12 @@
                 return; 
             }
             break;
-        // case steps.DESCRIPTION:
-        //     if (!pet_name.value || !ownerName.value || !address.value || !email.value || !pet_age.value || !contact.value || !description.value) {
-        //         store.addToast({ message: 'Please fill in all fields', type: 'error' });
-        //         return;
-        //     }
-        //     break;
+        case steps.DESCRIPTION:
+            if (!pet_name.value || !pet_age.value || !pet_size.value || !pet_gender.value || !description.value) {
+                store.addToast({ message: 'Please fill in all fields', type: 'error' });
+                return;
+            }
+            break;
         case steps.IMAGES:
             if (!myDropzone.files.length) {
                 store.addToast({ message: 'Please upload at least one image', type: 'error' });

@@ -1,11 +1,11 @@
 
 <template>
-    <div class="text-center border h-screen pt-5">
+    <div class="text-center h-screen pt-10">
         <svg
-            width="100%"
-            height="80%"
-            viewBox="0 0 100 35"
-            class="hidden md:block cursor-pointer text-[#FF5171] font-bold"
+            width="100vw"
+            height="75vh"
+            viewBox="0 0 100 100"
+            class="block cursor-pointer text-[#FF5171] font-bold"
             preserveAspectRatio="xMidYMid meet"
         >
             <image
@@ -23,7 +23,7 @@
 </template>
 
 <script setup>
-    const comingSoonBanner = "../images/ComingSoonBanner.png";
+    const comingSoonBanner = "../images/ComingSoonBanner2.png";
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
     import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
 

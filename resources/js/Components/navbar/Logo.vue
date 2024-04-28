@@ -1,22 +1,20 @@
 <template>
-    <center id="container">
+    <center>
+    <svg
+        viewBox="0 0 140 50"
+        class="block cursor-pointer text-[#FF5171] font-bold w-[90px] sm:w-[150px]"
+    >
         <Link class="link" :href="route('home')">
-            <center>
-                <svg
-                width="80%"
-                height="80%"
-                viewBox="0 0 102 32"
-                class="hidden md:block cursor-pointer text-[#FF5171] font-bold"
-            >
-                <image
-                    :xlink:href="props.source"
-                    width="100%"
-                    height="100%"
-                />
-            </svg>
-        </center>  
+            <image
+                :xlink:href="props.source"
+                width="100%"
+                height="100%"
+            />
         </Link>
-    </center>   
+    </svg>
+    </center>
+
+    
 </template>
 
 <script setup>

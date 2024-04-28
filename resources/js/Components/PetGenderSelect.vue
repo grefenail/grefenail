@@ -1,6 +1,6 @@
 <template>
     <select v-model="pet_gender" :class="inputClass" @change="$emit('change', pet_gender)">
-      <option value="" disabled>Pet Gender</option>
+      <option value="" disabled >Pet Gender</option>
       <option v-for="(gender, index) in $page.props.pet_genders" :key="index" :value="gender.id">{{ gender.gender }}</option>
     </select>
   </template>

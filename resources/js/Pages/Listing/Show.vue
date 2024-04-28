@@ -2,7 +2,7 @@
 
     <Layout title="Add Your Pet">
         <form @submit.prevent="submit">
-            <div class="mt-8 w-4/6 mx-auto">
+            <div class="mt-5 sm:mt-8 w-full lg:w-4/6 mx-auto lg:mb-0 mb-10">
                 
                 <div class="text-2xl font-bold capitalize">
                     {{ props.listing.pet_name }}
@@ -24,7 +24,7 @@
                     </SwiperSlide>
                 </Swiper> -->
 
-                <Carousel class="relative w-full h-[500px]" v-slot="{currentSlide}">
+                <Carousel class="relative w-full sm:h-[500px] h-[250px]" v-slot="{currentSlide}">
                     <Slide v-for="(image, index) in props.listing.images" :key="image.id">
                         <div v-show="currentSlide === index + 1" class="absolute top-0 left-0 w-full max-h-full h-full ">
                             <img class="object-cover w-full h-full" :src="image.url" alt="image" />
@@ -36,12 +36,13 @@
                     <div class="col-span-1 lg:col-span-2">
                         <div class="col-span-4 flex flex-col gap-4">
                             <div class="flex flex-col gap-2">
-                                <div class="flex gap-2 text-xl font-semibold">
+                                <div class="flex gap-2 text-base sm:text-xl font-semibold">
                                     Owned by {{ props.listing.user.first_name }}
                                 </div>
                             </div>
                             <div class="flex flex-row items-center gap-4 text-neutral-600">
-                                <div> <font-awesome-icon class="font-sm text-[#595959]" :icon="props.listing.category.icon" />
+                                <div> 
+                                    <font-awesome-icon class="font-sm text-[#595959]" :icon="props.listing.category.icon" />
                                 </div>
                             </div>
                         </div>

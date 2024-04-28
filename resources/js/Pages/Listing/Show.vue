@@ -4,11 +4,13 @@
         <form @submit.prevent="submit">
             <div class="mt-5 sm:mt-8 w-full lg:w-4/6 mx-auto lg:mb-0 mb-10">
                 
-                <div class="text-2xl font-bold capitalize">
+                <div class="text-2xl font-bold capitalize mb-2 sm:mb-0">
                     {{ props.listing.pet_name }}
                 </div>
-                <br>
-
+                <div class="sm:block hidden">
+                    <br>
+                </div>
+                
                 <!-- <Swiper 
                 :modules='[EffectCube, Pagination]'
                 :effect="cube"
@@ -32,7 +34,7 @@
                     </Slide>
                 </Carousel>
 
-                <div class="grid grid-cols-1 lg:grid-cols-3 md:gap-6 mt-6 mb-">
+                <div class="grid grid-cols-1 lg:grid-cols-3 md:gap-6 md:mt-6 mt-3 ">
                     <div class="col-span-1 lg:col-span-2">
                         <div class="col-span-4 flex flex-col gap-4">
                             <div class="flex flex-col gap-2">

@@ -84,7 +84,7 @@
     import MenuItem from '@/Components/navbar/MenuItem.vue'
     import LoginForm from '../auth/LoginForm.vue';
     import RegisterForm from '../auth/RegisterForm.vue';
-  import { COLORS } from '../constants/themes';
+    import { COLORS } from '../constants/themes';
 
     const store = useNotification();
 

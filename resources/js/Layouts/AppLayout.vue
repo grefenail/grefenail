@@ -6,10 +6,9 @@
 
     <NavBar></NavBar>
 
-    <Container style="min-height: 100vh">
+    <Container>
         <slot />
     </Container>
-    <Footer style="margin-top: auto"></Footer>
     
 </template>
 
@@ -20,7 +19,6 @@
     import NavBar from '@/Components/navbar/Navbar.vue'
     import ToastList from '@/Components/ToastList.vue';
     import Container from '../Components/Container.vue';
-    import Footer from '@/Components/footer/Footer.vue'
 
     defineProps({
         title: {

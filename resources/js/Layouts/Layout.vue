@@ -20,7 +20,7 @@
     import NavBar from '@/Components/navbar/Navbar.vue'
     import ToastList from '@/Components/ToastList.vue';
     import Container from '../Components/Container.vue';
-    import Footer from '@/Components/footer/Footer.vue'
+    import Footer from '@/Components/Footer.vue'
 
     defineProps({
         title: {

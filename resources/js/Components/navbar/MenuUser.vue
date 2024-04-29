@@ -23,7 +23,7 @@
               cursor-pointer
               transition              
             ">
-              <font-awesome-icon class="font-sm text-[#595959]" icon="fa-solid fa-bars" />
+              <font-awesome-icon class="font-sm text-[#595959]" icon="fa-solid fa-bars" @click.stop="showUserMenu = !showUserMenu"/>
             </div>
             <div>
               <Avatar @toggleUserMenu="showUserMenu = !showUserMenu" />

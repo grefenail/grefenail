@@ -25,7 +25,7 @@
                 </div>
             </div>
             <transition>
-                <CreateListingForm v-if="showFormListing" />
+                <ListingForm v-if="showFormListing" />
             </transition>
         </Container>
 
@@ -38,7 +38,7 @@
     import { computed, ref } from 'vue';
     
     import AppLayout from '@/Layouts/AppLayout.vue';
-    import CreateListingForm from '@/Components/listing/CreateListingForm.vue'
+    import ListingForm from '@/Components/listing/ListingForm.vue'
     import Container from '@/Components/Container.vue';
     import ToastList from '@/Components/ToastList.vue';
     import { COLORS } from '../../Components/constants/themes';

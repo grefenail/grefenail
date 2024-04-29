@@ -63,7 +63,6 @@
             </div>
           </div>
         </div>
-        <br>
         <div class="mt-5 text-center">
           <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
             Save

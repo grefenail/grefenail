@@ -2,7 +2,8 @@
     <center>
     <svg
         viewBox="0 0 140 50"
-        class="block cursor-pointer text-[#FF5171] font-bold w-[90px] sm:w-[150px]"
+        class="block cursor-pointer text-[#FF5171] font-bold"
+        :class="customClass"
     >
         <Link class="link" :href="route('home')">
             <image
@@ -24,6 +25,10 @@ import { defineProps } from 'vue';
 
 const props = defineProps({
     source: {
+        type: String,
+        required: true,
+    },
+    customClass: {
         type: String,
         required: true,
     },

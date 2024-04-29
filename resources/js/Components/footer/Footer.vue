@@ -3,7 +3,7 @@
         <div class="container mx-auto flex flex-wrap justify-center items-center text-sm lg:text-base">
             <div class="w-full md:w-1/5 mb-5 md:mb-0 text-center align-center justify-center">
               <div class="sm:block hidden">
-                <Logo :source='"../images/petty-logo2.png"' />
+                <Logo :source='"../images/petty-logo2.png"' :customClass='"w-[90px] sm:w-[150px]"'/>
               </div>    
               <p>&copy; 2024 Petty. All rights reserved. </p>
             </div>

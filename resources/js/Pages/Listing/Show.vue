@@ -63,6 +63,7 @@
             </div>
 
             <ReservationForm :showModal="showReservationForm" @closeReservationForm="closeReservationForm"/>
+        </form>
     </Layout>
 </template>
 

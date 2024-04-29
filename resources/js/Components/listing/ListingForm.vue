@@ -1,10 +1,10 @@
 <template>
-    <div class="flex justify-center">
-        <form @submit.prevent="submit" class="w-4/5">
+    <div class="flex justify-center" >
+        <form @submit.prevent="submit" class="w-full sm:w-4/5">
             <div v-if="currentStep == steps.CATEGORY">
                 <div class="flex flex-col mt-20">
                     <Heading title="What is your pet?" subtitle="Pick a category" />
-                    <div class="grid grid-cols-5 gap-4 mt-4">
+                    <div class="grid grid-cols-2 lg:grid-cols-5 gap-2 lg:gap-4 mt-4">
                         <template v-for="cat in $page.props.categories">
                             <div class="border rounded-xl border-gray-400">
                                 <div :class="{ 'border-black': cat.id === category }" @click="category = cat.id"
@@ -19,12 +19,13 @@
             </div>
 
             <div v-if="currentStep == steps.DESCRIPTION">
-                <div class="flex flex-col mt-10">
+                <div class="flex flex-col mt-5 sm:mt-10">
                     <Heading title="Enter the Essentials" subtitle="Short and sweet works best!" />
-                    <TextInput id="pet_name" v-model="pet_name" placeholder="Pet Name" type="text" class="my-2 block w-full" />
+                    <TextInput id="pet_name" v-model="pet_name" placeholder="Pet Name" type="text" class="my-2 block w-full mt-4" />
                     <PetSizeSelect v-model="pet_size"/>
-                    <div class="flex mt-2">
-                        <div class="w-1/2 mr-2">
+
+                    <div class="flex flex-col lg:flex-row lg:items-center mt-2">
+                        <div class="w-full lg:w-1/2 lg:mr-2">
                             <TextInput
                                 id="pet_age"
                                 v-model="pet_age"
@@ -35,7 +36,7 @@
                                 @input="validatePetAge($event)"
                             />
                         </div>
-                        <div class="w-1/2">
+                        <div class="w-full lg:w-1/2">
                             <PetGenderSelect v-model="pet_gender"/>
                         </div>
                     </div>
@@ -68,8 +69,8 @@
                     <div id="previews" class="flex justify-center mt-2"></div>
                 </div>
             </div>
-            <br>
-            <div class="flex align-middle mt-2" :class="{'justify-end': currentStep === steps.CATEGORY, 'justify-between': currentStep > steps.CATEGORY}">
+            
+            <div class="flex align-middle mt-2 mb-10" :class="{'justify-end': currentStep === steps.CATEGORY, 'justify-between': currentStep > steps.CATEGORY}">
                 <PrimaryButton type="button" v-if="currentStep > steps.CATEGORY" @click="previousStep">
                     Back
                 </PrimaryButton>

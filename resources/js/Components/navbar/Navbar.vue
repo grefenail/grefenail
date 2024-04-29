@@ -6,7 +6,7 @@
                 <!-- //if windowWidth>500 -->
                 <div v-if="isWideScreen" class="sm:my-6 flex flex-row items-center justify-between gap-3 md:gap-0">
                     <Logo :source='"../images/petty-logo.png"'/>
-                    <Search />
+                    <!-- <Search /> -->
                     <MenuUser/>
                 </div>
                 <!-- //else -->
@@ -15,7 +15,7 @@
                         <Logo :source='"../images/petty-logo.png"'/>
                     </div>
                     <div class="flex flex-row justify-end">
-                        <Search />
+                        <!-- <Search /> -->
                         <MenuUser/>
                     </div>
                 </div>

@@ -55,7 +55,7 @@
                 <div
                     class="text-sm font-semibold py-3 px-4 hover:bg-neutral-100 transition cursor-pointer text-center border-b-2 border-neutral-200">
                     <template v-if="user">
-                      <div :style="{ color: COLORS.primary }">
+                      <div>
                         {{ user.first_name }} {{ user.last_name }}
                       </div>
                     </template>

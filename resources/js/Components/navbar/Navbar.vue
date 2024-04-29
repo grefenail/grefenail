@@ -5,14 +5,14 @@
 
                 <!-- //if windowWidth>500 -->
                 <div v-if="isWideScreen" class="sm:my-6 flex flex-row items-center justify-between gap-3 md:gap-0">
-                    <Logo :source='"../images/petty-logo.png"'/>
+                    <Logo :source='"../images/petty-logo.png"' :customClass='"w-[90px] sm:w-[150px]"'/>
                     <!-- <Search /> -->
                     <MenuUser/>
                 </div>
                 <!-- //else -->
                 <div v-else class="sm:my-6 flex flex-row items-center justify-between md:gap-0">
                     <div>
-                        <Logo :source='"../images/petty-logo.png"'/>
+                        <Logo :source='"../images/petty-logo.png"' :customClass='"w-[90px] sm:w-[150px]"'/>
                     </div>
                     <div class="flex flex-row justify-end">
                         <!-- <Search /> -->

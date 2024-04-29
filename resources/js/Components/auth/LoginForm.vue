@@ -1,11 +1,14 @@
 <template>
     <DialogModal :show="showModal" @close="$emit('closeLoginForm')" maxWidth="xl">
         <template #title>
-            Login
+            <div class="font-bold">
+                Login
+            </div>
+            
         </template>
 
         <template #content>
-            <h3 class="font-bold text-lg mb-3">Welcome to Petty</h3>
+            <h3 class="font-bold text-base sm:text-lg mb-3">Welcome to Petty</h3>
             <form @submit.prevent="submit">
                 <div class="col-span-6 sm:col-span-4">
                     <TextInput
@@ -31,8 +34,8 @@
                     <InputError :message="form.errors.password" class="mt-2" />
                 </div>
 
-                <button :disabled="form.processing" class="mt-8 w-full bg-[#DB0C63] border-[#243c5a] text-white py-2 px-4 rounded-lg">
-                    <div class="text-lg font-semibold">
+                <button :disabled="form.processing" class="mt-4 sm:mt-8 w-full bg-[#DB0C63] border-[#243c5a] text-white py-2 px-4 rounded-lg">
+                    <div class="sm:text-lg font-semibold">
                         Continue
                     </div>
                 </button>

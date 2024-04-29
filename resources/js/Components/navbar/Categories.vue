@@ -1,6 +1,7 @@
 <template>
       <div v-if="$page.component.includes('Home')" class="
-        pt-4
+        pt-2
+        md:pt-4
         flex
         items-center
         justify-evenly

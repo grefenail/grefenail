@@ -1,11 +1,13 @@
 <template>
     <DialogModal :show="showModal" @close="$emit('closeRegisterForm')" maxWidth="xl">
         <template #title>
-            Register
+            <div class="font-bold">
+                Register
+            </div>
         </template>
 
         <template #content>
-            <h3 class="font-bold text-lg mb-3">Welcome to Petty!</h3>
+            <h3 class="font-bold text-base sm:text-lg mb-3">Welcome to Petty!</h3>
             <form @submit.prevent="submit">
                 <div class="flex">
                     <div class="w-1/2 mr-2">
@@ -84,8 +86,8 @@
                     <InputError :message="form.errors.email" class="mt-2" />
                 </div>
 
-                <button :disabled="form.processing" class="mt-8 w-full bg-[#DB0C63] border-[#243c5a] text-white py-2 px-4 rounded-lg">
-                    <div class="text-lg font-semibold">
+                <button :disabled="form.processing" class="mt-4 sm:mt-8 w-full bg-[#DB0C63] border-[#243c5a] text-white py-2 px-4 rounded-lg">
+                    <div class="sm:text-lg font-semibold">
                         Continue
                     </div>
                 </button>

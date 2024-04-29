@@ -4,17 +4,17 @@
 
         <!-- navigation -->
         <div >
-            <div @click="prevSlide" class="absolute top-1/2 left-5 cursor-pointer flex w-12 h-12 rounded-full  text-white text-xl bg-gray-400 bg-opacity-50 hover:bg-gray-500 items-center justify-center">
-                <font-awesome-icon :icon="chevronLeftIcon"/>
+            <div @click="prevSlide" class="absolute top-1/2 left-5 cursor-pointer flex w-9 h-9 sm:w-12 sm:h-12 rounded-full  text-white text-xl bg-gray-400 bg-opacity-50 hover:bg-gray-500 items-center justify-center">
+                <font-awesome-icon :icon="chevronLeftIcon" class="text-base sm:text-xl"/>
             </div>
-            <div @click="nextSlide" class="absolute top-1/2 right-5 cursor-pointer flex w-12 h-12 rounded-full  text-white text-xl bg-gray-400 bg-opacity-50 hover:bg-gray-500 items-center justify-center">
-                <font-awesome-icon :icon="chevronRightIcon" />
+            <div @click="nextSlide" class="absolute top-1/2 right-5 cursor-pointer flex w-9 h-9 sm:w-12 sm:h-12 rounded-full  text-white text-xl bg-gray-400 bg-opacity-50 hover:bg-gray-500 items-center justify-center">
+                <font-awesome-icon :icon="chevronRightIcon" class="text-base sm:text-xl"/>
             </div>
         </div>
 
         <!-- pagination -->
         <div class="absolute bottom-5 transform -translate-x-1/2 left-1/2 flex space-x-2">
-            <span v-for="(slide, index) in getSlideCount" :key="slide.id" @click="goToSlide(index)" :class="{'bg-gray-100 bg-opacity-50': index + 1 !== currentSlide, 'pagination-highlight': index + 1 === currentSlide }" class="cursor-pointer inline-block w-3 h-3 rounded-full shadow-md transition-colors duration-300">
+            <span v-for="(slide, index) in getSlideCount" :key="slide.id" @click="goToSlide(index)" :class="{'bg-gray-100 bg-opacity-50': index + 1 !== currentSlide, 'pagination-highlight': index + 1 === currentSlide }" class="cursor-pointer inline-block w-2 h-2 sm:w-3 sm:h-3 rounded-full shadow-md transition-colors duration-300">
             </span>
         </div>
     </div>

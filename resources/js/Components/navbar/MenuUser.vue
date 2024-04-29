@@ -5,25 +5,27 @@
             flex
             justify-between
             align-middle
-            rounded-full
-            shadow-md
-            border-[1px]
+            sm:rounded-full
+            sm:shadow-md
+            sm:border-[1px]
             border-neutral-200
-            px-2
+            sm:px-2
             py-1
+         
           ">
             <div class="
-              px-2.5 py-2
+              px-2.5
+              py-2
               flex
               items-center
               gap-3
               rounded-full
               cursor-pointer
-              transition
+              transition              
             ">
               <font-awesome-icon class="font-sm text-[#595959]" icon="fa-solid fa-bars" @click.stop="showUserMenu = !showUserMenu"/>
             </div>
-            <div class="hidden md:block">
+            <div>
               <Avatar @toggleUserMenu="showUserMenu = !showUserMenu" />
             </div>
           </div>
@@ -35,10 +37,12 @@
                 rounded-xl
                 shadow-lg
                 bg-white
-                w-[13vw]
+                lg:w-[13vw]
                 overflow-hidden
-                top-24
-                right-20
+                top-14
+                right-4
+                sm:top-24
+                lg:right-20
                 text-sm
                 z-10
             ">
@@ -46,16 +50,18 @@
                 <menu-item @click="toggleLoginForm">Login</menu-item>
                 <menu-item @click="toggleRegisterForm">Sign up</menu-item>
             </div>
-            <div class="flex flex-col cursor-pointer" v-else>
+            <div class="flex flex-col cursor-pointer border" v-else>
 
                 <div
                     class="text-sm font-semibold py-3 px-4 hover:bg-neutral-100 transition cursor-pointer text-center border-b-2 border-neutral-200">
                     <template v-if="user">
+                      <div :style="{ color: COLORS.primary }">
                         {{ user.first_name }} {{ user.last_name }}
+                      </div>
                     </template>
                 </div>
 
-                <menu-item @click="logOut">Log Out</menu-item>
+                <menu-item @click="logOut" >Log Out</menu-item>
                 <menu-item @click="router.visit(route('listing.index'))">Add Your Pet</menu-item>
                 <menu-item @click="router.visit(route('profile.index'))">Edit Your Profile</menu-item>
             </div>
@@ -78,6 +84,7 @@
     import MenuItem from '@/Components/navbar/MenuItem.vue'
     import LoginForm from '../auth/LoginForm.vue';
     import RegisterForm from '../auth/RegisterForm.vue';
+    import { COLORS } from '../constants/themes';
 
     const store = useNotification();
 

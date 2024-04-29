@@ -6,14 +6,11 @@
 
     <NavBar></NavBar>
 
-    <Container>
+    <Container style="min-height: 100vh">
         <slot />
     </Container>
-
-    <br><br>
-
-    <Footer></Footer>
-
+    <Footer style="margin-top: auto"></Footer>
+    
 </template>
 
 <script setup>
@@ -33,4 +30,6 @@
     });
 
 </script>
+
+
 

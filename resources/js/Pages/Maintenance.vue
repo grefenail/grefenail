@@ -2,10 +2,9 @@
 <template>
     <div class="text-center border h-screen pt-5">
         <svg
-            width="100%"
-            height="80%"
-            viewBox="0 0 100 35"
-            class="hidden md:block cursor-pointer text-[#FF5171] font-bold"
+            width="100vw"
+            height="75vh"
+            viewBox="0 0 100 100"
             preserveAspectRatio="xMidYMid meet"
         >
             <image
@@ -15,9 +14,9 @@
             />
         </svg>
         <div class="flex flex-row items-center justify-center">
-            <p class="mr-6 font-bold" style="color: #C75859; ">FOLLOW US ON</p>
-            <a href="#" class="mr-4"><FontAwesomeIcon :icon="facebookIcon" class="text-[24px]" style="color: #1877F2" /></a>
-            <a href="#" class=""><FontAwesomeIcon :icon="instagramIcon" class="instagram text-[19px] text-white p-[3px] rounded-lg" /></a>  
+            <p class="mr-6 font-bold text-xs lg:text-base" style="color: #C75859; ">FOLLOW US ON</p>
+            <a href="#" class="mr-4"><FontAwesomeIcon :icon="facebookIcon" class="text-[20px] sm:text-[24px]" style="color: #1877F2" /></a>
+            <a href="#" class=""><FontAwesomeIcon :icon="instagramIcon" class=" instagram text-[15px] sm:text-[19px] text-white p-[3px] rounded-lg" /></a>  
         </div>
     </div>
 </template>

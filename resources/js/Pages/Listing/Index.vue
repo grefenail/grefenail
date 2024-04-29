@@ -6,13 +6,13 @@
                 <div class="flex justify-center items-center ">
                     <div class="text-center ">
                         <div v-show="!showFormListing" class="slider">
-                            <h1 class="text-6xl font-bold text-[#FF385C]">
+                            <h1 class="text-4xl sm:text-6xl font-bold" :style="{ color: COLORS.brightred }">
                                 Petty
                             </h1>
-                            <p class="text-3xl font-bold mt-5">Find Your Pet a Loving Home</p> 
+                            <p class="text-xl sm:text-3xl font-bold mt-5" :style="{ color: COLORS.red }">Find Your Pet a Loving Home</p> 
                             <div class="mt-8">
                                 <div class="font-bold">{{ currentValue }} pets</div>
-                                <div>are currently listed on the site</div> 
+                                <div class="text-sm sm:text-base mt-1">are currently listed on the site</div> 
                             </div>
                             <br>
                             <button @click="showFormListing = true" class="my-4 rounded-lg bg-gradient-to-r from-[#e61e4d] via-[#d70466] to-[#bd1e59] text-white px-4 py-3">
@@ -41,6 +41,7 @@
     import ListingForm from '@/Components/listing/ListingForm.vue'
     import Container from '@/Components/Container.vue';
     import ToastList from '@/Components/ToastList.vue';
+    import { COLORS } from '../../Components/constants/themes';
 
     const currentValue = ref(7);
     const showFormListing = ref(false);

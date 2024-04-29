@@ -21,7 +21,7 @@
         <hr class="my-4" />
         <div class="text-md text-neutral-600">Description</div>
         <br>
-        <div class="text-md text-neutral-600">{{ props.listing.description }}</div>
+        <div class="text-sm sm:text-md text-neutral-600">{{ props.listing.description }}</div>
 
         <!-- <hr class="my-4" />
         <div class="text-md text-neutral-600">Vaccinations</div>

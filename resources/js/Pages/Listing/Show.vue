@@ -1,6 +1,6 @@
 <template>
 
-    <Layout title="Add Your Pet">
+    <Layout title="Adopt a Pet">
         <div class="mt-5 sm:mt-8 w-full lg:w-4/6 mx-auto lg:mb-0 mb-10">
             
             <div class="text-2xl font-bold capitalize mb-2 sm:mb-0">

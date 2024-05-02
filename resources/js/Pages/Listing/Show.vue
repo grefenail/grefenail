@@ -46,7 +46,7 @@
 
         </div>
 
-        <ReservationForm :showModal="showReservationForm" @closeReservationForm="closeReservationForm"/>
+        <ReservationForm :listing="props.listing" :questions="props.questions" :showModal="showReservationForm" @closeReservationForm="closeReservationForm"/>
 
     </Layout>
 </template>
@@ -54,7 +54,6 @@
 <script setup>
 
     import { defineProps, ref } from 'vue';
-    import { useNotification } from '@/Stores/notification.js';
     import DangerButton from '@/Components/DangerButton.vue';
     import Layout from '@/Layouts/Layout.vue';
     import ListingDetail from '@/Components/ListingDetail.vue'
@@ -71,10 +70,12 @@
         listing: {
             type: Object,
             required: true, 
+        },
+        questions: {
+            type: Object,
         }
     });
 
-    const store = useNotification();
     const btnDisabled = ref(false);
 
     const showReservationForm = ref(false);
@@ -86,33 +87,4 @@
         showReservationForm.value = true;
     }
 
-
-    // function submit()
-    // {
-    //     btnDisabled.value = true;
-
-    //     router.visit(route('reservation.store'),
-    //     {
-    //         method: 'post',
-    //         data: {
-    //             startDate: startDate.value,
-    //             endDate: endDate.value,
-    //             listingId: props.listing.id,
-    //         },
-    //         preserveScroll: true,
-    //         onSuccess: (res) => {
-    //             store.addToast({ message: res.props?.flash?.toast});
-    //         },
-    //         onError : (err) =>
-    //         {
-    //             for (let key in err)
-    //             {
-    //                 store.addToast({message: err[key], type: 'error'});
-    //             }
-    //         },
-    //         onFinish: visit => {
-    //             btnDisabled.value = false;
-    //         },
-    //     })
-    // }
 </script>

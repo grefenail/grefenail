@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreReservationRequest;
 use App\Models\Listing;
+use App\Models\Reservation;
+use App\Models\Answer;
 use App\Providers\NewListingReservation;
 use App\Services\ReservationService;
 use Illuminate\Http\Request;
@@ -11,21 +13,31 @@ use Illuminate\Http\Request;
 class ReservationController extends Controller
 {
 
-    public function store(StoreReservationRequest $request, ReservationService $reservationService)
+    public function store(Request $request)
     {
         try {
 
-            $listing = Listing::where('id', $request->listingId)->first();
+            $reservation = Reservation::create([
+                'user_id' => $request['user_id'],
+                'listing_id' => $request['listing_id'],
+            ]);
 
-            $reservation = $reservationService->saveReservation($request->validated());
+            for ($i = 0; $i < 5; $i++)
+            {
 
-            event(new NewListingReservation($reservation));
+            }
 
-            return redirect()->route('home')->with('toast', 'The request was sent to the owner');
+            Answer::create([
 
-        } catch (\EXception $th)
-        {
+            ]);
+
+
+            return redirect()->route('home')->with('toast', 'The request was successfully sent!');
+
+        } catch (\Exception $th) {
+
             return redirect()->back()->with('toast', 'Please try again');
+
         }
     }
 

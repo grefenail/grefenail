@@ -14,10 +14,8 @@ class SizeSeeder extends Seeder
      */
     public function run()
     {
-        // Define size options
         $sizes = ['Small', 'Medium', 'Big'];
 
-        // Seed the PetSizes table
         foreach ($sizes as $size) {
             Size::create(['size' => $size]);
         }

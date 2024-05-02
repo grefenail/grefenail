@@ -20,7 +20,6 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('listing_id')->references('id')->on('listings');
 
-            $table->date('start_date');
             $table->timestamps();
         });
     }

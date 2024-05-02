@@ -14,7 +14,6 @@ class VaccineSeeder extends Seeder
      */
     public function run()
     {
-        // Array of vaccine names
         $vaccines = [
             'Canine Adenovirus Type 2',
             'Canine Distemper',
@@ -26,7 +25,6 @@ class VaccineSeeder extends Seeder
             'Feline Rhinotracheitis',
         ];
 
-        // Loop through the vaccines and insert them into the database
         foreach ($vaccines as $vaccine) {
             Vaccine::create([
                 'name' => $vaccine,

@@ -14,10 +14,8 @@ class GenderSeeder extends Seeder
      */
     public function run()
     {
-        // Define gender options
         $genders = ['Male', 'Female'];
 
-        // Seed the PetGenders table
         foreach ($genders as $gender) {
             Gender::create(['gender' => $gender]);
         }

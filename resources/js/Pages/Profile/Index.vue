@@ -25,13 +25,13 @@
                   <div class="font-bold text-lg lg:text-xl">Edit Account</div>
                 </div>
                 
-                <div class="flex flex-col items-center sm:py-5">
+                <div class="flex flex-col items-center sm:py-4">
                   <button 
                     :class="[
                       'btn',
                       'w-full',
                       'py-2',
-                      'lg:text-lg',
+                      'lg:text-base',
                       'rounded-xl',
                       {'hover:bg-gray-100': activeSection !== 'profileSettings'},
                       {'hover:text-red-500': activeSection !== 'profileSettings'},
@@ -40,7 +40,7 @@
                       'transition-colors',
                       'duration-300',
                       'ease-in-out',
-                      'mb-1'
+                      'mb-2'
                     ]" 
                     @click="activeSection = 'profileSettings'"
                     @mouseover="hover = 'profileSettings'"
@@ -53,7 +53,7 @@
                       'btn',
                       'w-full',
                       'py-2',
-                      'lg:text-lg',
+                      'lg:text-base',
                       'rounded-xl',
                       {'hover:bg-gray-100': activeSection !== 'updatePasswordSettings'},
                       {'hover:text-red-500': activeSection !== 'updatePasswordSettings'},

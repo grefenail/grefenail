@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\LoginController;
@@ -32,3 +33,11 @@ Route::resource('/reservation', ReservationController::class)->only(['store']);
 Route::fallback(function () {
     return redirect()->route('home');
 });
+
+Route::get("/forget-password", [ChangePasswordController::class, 'forgetPassword'])->name("forget.password");
+Route::post("/forget-password", [ChangePasswordController::class, 'forgetPasswordPost'])->name("forget.password.post");
+Route::get("/reset-password/{token}", [ChangePasswordController::class, 'resetPassword'])->name("reset.password");
+Route::post("/reset-password", [ChangePasswordController::class, 'resetPasswordPost'])->name("reset.password.post");
+
+Route::get("/update-password", [ChangePasswordController::class, 'updatePassword'])->name("update.password");
+Route::post("/update-password", [ChangePasswordController::class, 'updatePasswordPost'])->name("update.password.post");

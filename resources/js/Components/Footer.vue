@@ -1,7 +1,7 @@
 <template>
     <footer class="bg-footer-color text-gray-200 py-5 mt-10">
         <div class="container mx-auto flex flex-wrap justify-center items-center ">
-            <div class="w-full md:w-1/5 mb-8 md:mb-0 ">
+            <div class="w-full md:w-1/5 mb-8 md:mb-0 text-center">
               <!-- <Logo :source='"../images/petty-logo2.png"' /> -->
               <p>&copy; 2024 Petty. All rights reserved. </p>
             </div>

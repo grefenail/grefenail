@@ -39,6 +39,8 @@
                         Continue
                     </div>
                 </button>
+                <!-- USE FOR FORGOT PASSWORD EMAIL VERIFICATION FEATURE  -->
+                <!-- <a :href="route('forget.password')">Forget Password</a> -->
             </form>
 
             <!-- <a :href="route('login.redirect', 'github')" :disabled="form.processing" as="button" class="w-full rounded-lg flex justify-between align-middle px-6 py-2.5 bg-white border border-black hover:bg-black hover:text-white transition duration-500 ">

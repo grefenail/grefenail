@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             GenderSeeder::class,
             SizeSeeder::class,
             ListingSeeder::class,
+            QuestionSeeder::class,
         ]);
     }
 }

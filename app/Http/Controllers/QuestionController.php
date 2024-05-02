@@ -2,26 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Listing;
-use App\Models\User;
 use App\Models\Question;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class ProfileController extends Controller
+class QuestionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $listings = Listing::all();
-        $user = Auth::user();
-
-        return inertia('Profile/Index', [
-            'listings' => $listings,
-            'user' => $user, 
-        ]);
+        //
     }
 
     /**
@@ -43,7 +34,7 @@ class ProfileController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Question $question)
     {
         //
     }
@@ -51,7 +42,7 @@ class ProfileController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Question $question)
     {
         //
     }
@@ -59,23 +50,15 @@ class ProfileController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(Request $request, Question $question)
     {
-        $user = User::findOrFail($request->user_id);
-
-        $user->update([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'email' => $request->email,
-            'contact' => $request->contact,
-            'address' => $request->address,
-        ]);
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Question $question)
     {
         //
     }

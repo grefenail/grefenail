@@ -9,7 +9,6 @@ use Ramsey\Uuid\Type\Integer;
 class ReservationService
 {
 
-
     public function saveReservation(array $data): Reservation
     {
         return Reservation::create([

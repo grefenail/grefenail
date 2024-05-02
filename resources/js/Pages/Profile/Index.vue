@@ -91,12 +91,9 @@
     import { onMounted, ref, onUnmounted, computed } from 'vue';
     import { router, useForm } from '@inertiajs/vue3';
     import Layout from '@/Layouts/Layout.vue';
-    import ActionMessage from '@/Components/ActionMessage.vue';
-    import FormSection from '@/Components/FormSection.vue';
     import InputError from '@/Components/InputError.vue';
     import InputLabel from '@/Components/InputLabel.vue';
     import PrimaryButton from '@/Components/PrimaryButton.vue';
-    import SecondaryButton from '@/Components/SecondaryButton.vue';
     import TextInput from '@/Components/TextInput.vue';
     import { useNotification } from '@/Stores/notification.js';
     import ProfileSettings from './Partials/ProfileSettings.vue';

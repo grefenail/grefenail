@@ -14,7 +14,6 @@
                 <font-awesome-icon icon="fa-solid fa-heart" class="fill-white absolute -top[2px] -right-[2px]" />
             </div>
         </div>
-        <!-- <br> -->
         <div class=" text-neutral-500 pb-1 md:pb-2 font-bold">
             {{ props.listing.pet_name }}
         </div>

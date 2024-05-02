@@ -11,6 +11,7 @@ use App\Models\Listing;
 use App\Services\ListingService;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Question;
 use App\Models\Size;
 use App\Models\Gender;
 
@@ -51,8 +52,11 @@ class ListingController extends Controller
 
     public function show(Listing $listing)
     {
+        $questions = Question::all();
+
         return inertia('Listing/Show', [
             'listing' => $listing,
+            'questions' => $questions,
         ]);
     }
 

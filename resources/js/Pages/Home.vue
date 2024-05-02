@@ -1,6 +1,6 @@
 
 <template>
-    <Layout title="Home Page">
+    <Layout title="Home">
         <main class="py-5">
             <NoResults v-if="props.listings.data && props.listings.data.length <= 0" />
             <transition-group tag="div" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-8 mb-10"

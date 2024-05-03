@@ -32,7 +32,7 @@
     import DialogModal from '@/Components/DialogModal.vue';
     import TextInput from '@/Components/TextInput.vue';
     import InputLabel from '@/Components/InputLabel.vue';
-    import { router, useForm } from '@inertiajs/vue3';
+    import { useForm } from '@inertiajs/vue3';
     import InputError from '../InputError.vue';
 
     import { useNotification } from '@/Stores/notification.js';
@@ -65,9 +65,8 @@
 
         form.post(url, {
             onSuccess: (res) => {
-                router.visit(route('home'))
                 emit('closeReservationForm');
-                store.addToast({message: 'Adoption request successfully sent!'});
+                store.addToast({message: 'Your doption request successfully sent!'});
             },
             onError : (err) => {
                 errorToast({message: 'Please try again', type: 'error'});

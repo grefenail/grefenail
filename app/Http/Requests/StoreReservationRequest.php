@@ -23,11 +23,11 @@ class StoreReservationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'startDate' => 'required|date_format:Y-m-d|before:endDate',
-            'endDate' => 'required|date_format:Y-m-d|after:startDate',
-            'listingId' => 'required|exists:listing,id',
+            'user_id' => 'required',
+            'listing_id' => 'required',
         ];
     }
+    
 
     protected function prepareForValidation(): void
     {

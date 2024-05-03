@@ -1,4 +1,5 @@
 <template>
+  <br>
   <footer class="bg-footer-color text-gray-200 py-5 mt-20">
       <div class="container mx-auto flex flex-wrap justify-center items-center text-sm lg:text-base">
           <div class="w-full md:w-1/5 mb-5 md:mb-0 text-center align-center justify-center">

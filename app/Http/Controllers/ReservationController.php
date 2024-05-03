@@ -8,37 +8,32 @@ use App\Models\Reservation;
 use App\Models\Answer;
 use App\Providers\NewListingReservation;
 use App\Services\ReservationService;
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
 {
 
-    public function store(Request $request)
+    public function store(StoreReservationRequest $request, ReservationService $reservationService)
     {
-        try {
 
-            $reservation = Reservation::create([
-                'user_id' => $request['user_id'],
-                'listing_id' => $request['listing_id'],
-            ]);
+        $validated = $request->validated();
 
-            for ($i = 0; $i < 5; $i++)
-            {
+        $reservation = $reservationService->saveReservation($validated, auth()->id());
 
-            }
+        for ($i = 0; $i < 5; $i++) 
+        {
+            $answer = $request->input('answer' . $i);
 
             Answer::create([
-
+                'reservation_id' => $reservation->id,
+                'question_id' => $i + 1,
+                'answer_text' => $answer,
             ]);
-
-
-            return redirect()->route('home')->with('toast', 'The request was successfully sent!');
-
-        } catch (\Exception $th) {
-
-            return redirect()->back()->with('toast', 'Please try again');
-
         }
+
+        return redirect()->back()->with('toast', 'Your request was successfully sent!');
+
     }
 
 }

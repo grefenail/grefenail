@@ -10,16 +10,16 @@ use Illuminate\Support\Str;
 class ListingService
 {
 
-    private $userId;
+    private $user_id;
 
-    public function setUserId($userId)
+    public function setUserId($user_id)
     {
-        $this->userId = $userId;
+        $this->user_id = $user_id;
 
         return $this;
     }
 
-    public function storeListing(array $data, $userId): Listing
+    public function storeListing(array $data, $user_id): Listing
     {
         return Listing::create([
             'slug' => Str::slug($data['pet_name']), 
@@ -29,7 +29,7 @@ class ListingService
             'pet_size' => $data['pet_size'],
             'pet_gender' => $data['pet_gender'],
             'category_id' => $data['category'],
-            'user_id' => $userId, 
+            'user_id' => $user_id, 
         ]);
     }
 

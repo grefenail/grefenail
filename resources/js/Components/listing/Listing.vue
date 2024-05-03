@@ -7,7 +7,7 @@
                     rel="preload"
                     as="image"
                     :src="props.listing.image"
-                    alt="Image living"
+                    alt="Error 404: Image Not Found"
                     height="400"
                     width="400"
                 />

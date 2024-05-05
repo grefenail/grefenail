@@ -35,7 +35,7 @@
                     </div>
                     <ListingDetail :listing="props.listing"/>
                 </div>
-                <div class="shadow p-4">
+                <div class="button shadow p-4">
                     <DangerButton @click="toggleReservationForm" :class="{ 'opacity-25': btnDisabled }" class="w-full" :disabled=btnDisabled v-if="$page.props.auth.user">
                         Adopt
                     </DangerButton>
@@ -88,3 +88,16 @@
     }
 
 </script>
+
+<style>
+
+    .button {
+        transition: width 0.5s, height 0.5s;
+    }
+
+    .button:hover {
+        width: 110%; /* Expanded width */
+        height: auto; /* Original height */
+    }
+    
+</style>

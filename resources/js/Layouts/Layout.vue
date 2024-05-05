@@ -6,7 +6,7 @@
 
     <NavBar></NavBar>
 
-    <Container style="min-height: 100vh">
+    <Container>
         <slot />
     </Container>
     <Footer style="margin-top: auto"></Footer>

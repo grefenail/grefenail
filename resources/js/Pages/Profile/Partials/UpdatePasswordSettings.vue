@@ -42,7 +42,7 @@ const updatePassword = () => {
 
 <template>
     <form @submit.prevent="updatePassword">
-        <div class="bg-white shadow-md px-2 lg:px-0 lg:p-2 rounded-md mb-8">
+        <div class="bg-white shadow-md px-2 lg:px-0 lg:p-2 rounded-md">
             <div class="md:p-3 lg:py-3 py-2">
                 <h4 class="sm:text-xl ft mb-2 sm:mb-3 font-bold">Update Password</h4>
                 <p class="text-xs sm:text-base block font-medium text-gray-700">

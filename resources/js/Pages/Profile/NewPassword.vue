@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-     import { useForm } from '@inertiajs/vue3';
+    import { useForm } from '@inertiajs/vue3';
     import Layout from '@/Layouts/Layout.vue';
     import InputLabel from '@/Components/InputLabel.vue';
 

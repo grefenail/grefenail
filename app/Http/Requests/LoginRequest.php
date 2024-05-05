@@ -17,8 +17,8 @@ class LoginRequest extends FormRequest
     public function messages()
     {
         return [
-            'email.required' => 'The email is required',
-            'email.exists' => 'The email dont exists',
+            'email.required' => 'An email is required',
+            'email.exists' => 'This email does not exist',
             'password.required' => 'The password is required',
         ];
     }

@@ -88,16 +88,3 @@
     }
 
 </script>
-
-<style>
-
-    .button {
-        transition: width 0.5s, height 0.5s;
-    }
-
-    .button:hover {
-        width: 110%; /* Expanded width */
-        height: auto; /* Original height */
-    }
-    
-</style>

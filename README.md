@@ -30,22 +30,7 @@
 
 ---
 
-### 📊 GitHub Stats
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=grefenail&show_icons=true&theme=tokyonight" alt="grefenail stats"/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=grefenail&theme=tokyonight" alt="grefenail streaks"/>
-</p>
 
----
-
-### 🌐 Connect With Me
-<p align="center">
-  <a href="https://linkedin.com/in/adam-lo-jen-khai" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white"></a>
-  <a href="mailto:adam.lo.jenkhai@gmail.com"><img src="https://img.shields.io/badge/Email-red?logo=gmail&logoColor=white"></a>
-  <a href="https://github.com/grefenail"><img src="https://img.shields.io/badge/GitHub-grey?logo=github&logoColor=white"></a>
-</p>
-
----
 
 ⭐ **Thanks for visiting my profile!**  
 *Feel free to explore my repositories and reach out for collaboration!*

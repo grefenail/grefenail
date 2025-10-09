@@ -15,7 +15,8 @@
 - 🧠 [**CAPTCHA Solver**](https://github.com/Priyam1204/UTN-CAPTCHASOLVER) — Deep learning for CAPTCHA recognition using ResNet & YOLO heads  
 - 🤖 [**Human Buggy Robot**](https://github.com/grefenail/Robotics) — Prototype development using Solo Pico controller & Raspberry Pi  
 - 🔍 [**G10: Convolution vs. Attention**](https://github.com/grefenail/Deep-Learning) — Comparative study of CNNs & ViTs for object detection  
-- 🕹️ [**Mini Game (ScalaFX)**](https://github.com/grefenail/GameProject) — OOP GUI project demonstrating event-driven programming  
+- 🕹️ [**Mini Game (ScalaFX)**](https://github.com/grefenail/GameProject) — OOP GUI project demonstrating event-driven programming
+- 📈 [**Realtime Data Engineering**](https://github.com/Nitishdevrani/Realtime_DataPipeline_Dashboard) — Kafka-based streaming data pipeline with automated analytics dashboard
 
 ---
 
